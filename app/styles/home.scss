@@ -1,0 +1,13 @@
+//Подключаем миксины//
+@import 'common/base/mixins.scss';
+
+//Общие стили//
+@import './common/core.scss';
+
+//Компоненты
+@import './common/components/prosressing-work.scss';
+
+//Индивидуальные секции//
+@import './home/s1-prices.scss';
+@import './home/s2-our-help.scss';
+@import './home/s3-progress-work.scss';

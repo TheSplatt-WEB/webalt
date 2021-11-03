@@ -1,0 +1,32 @@
+//Подключаем миксины//
+@import 'common/base/mixins.scss';
+
+//Подключаем шрифты//
+@import "common/base/fonts.scss";
+
+//Подключаем сброс стилей//
+@import "common/base/reset.scss";
+
+//Подключаем глобальные стили//
+@import "common/base/global.scss";
+@import "common/base/animate.scss";
+
+//Подключаем компоненты//
+@import "common/components/menu.scss";
+@import "common/components/link.scss";
+@import "common/components/braedcrumps.scss";
+@import "common/components/form-application.scss";
+@import "common/components/case.scss";
+
+//Стили общих секций//
+@import "common/header.scss";
+@import "common/footer.scss";
+@import "common/sections/s1-top.scss";
+@import "common/sections/s2-getting.scss";
+@import "common/sections/s3-technology.scss";
+@import "common/sections/s4-clients.scss";
+@import "common/sections/s5-founder.scss";
+@import "common/sections/s6-applicants.scss";
+@import "common/sections/s7-reviews.scss";
+@import "common/sections/s8-raiting.scss";
+@import "common/sections/s9-cases.scss";

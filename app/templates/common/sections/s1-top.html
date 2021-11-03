@@ -1,0 +1,48 @@
+<section class="top">
+	<div class="top__container container">
+		<div class="top__body">
+			<div class="top__info">
+				@include('../components/breadcrumps.html',{})
+
+				<h1 class="top__title">
+					<span class="title title--big">@title</span>
+					<span class="title-mini">@titleMini</span>
+				</h1>
+
+				<div class="top__descr">
+					@descr
+
+					<button class="top__btn link link--uppercase link--bold link--orange link--underline" type="button">
+						<span class="link__text">Заказать консультацию</span>
+						<span class="link__icon">
+							<svg>
+								<use xlink:href="images/sprite.svg#arrow-symbol"></use>
+							</svg>
+						</span>
+					</button>
+				</div>
+
+				<ul class="top__list">
+					<li class="top__item">
+						<span class="top__quantity">@quantity1</span>
+						<span class="top__text">@text1</span>
+					</li>
+					<li class="top__item">
+						<span class="top__quantity">@quantity2</span>
+						<span class="top__text">@text2</span>
+					</li>
+					<li class="top__item">
+						<span class="top__quantity">@quantity3</span>
+						<span class="top__text">@text3</span>
+					</li>
+				</ul>
+
+				<div class="top__grid"></div>
+			</div>
+
+			<div class="top__image">
+				<img class="top__img" src="images/@img" alt="@alt"></img>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,30 @@
+<article class="cases__card case @if(big==1){case--big}">
+
+	<div class="case__bg"></div>
+
+	<div class="case__image" style="background-image: url('images/cases/@img.png');" aria-label="@alt"></div>
+
+	<h3 class="case__title">@title</h3>
+	<span class="case__category">@category</span>
+
+	<ul class="case__hashtags hashtags">
+		@if(hashCase.length >= 1){
+		@include('hash-content-@hashCase.html',{})
+		}
+	</ul>
+
+	<p class="case__descr">@descr</p>
+
+	@if(contentCase.length >= 1){
+	@include('case-content-@contentCase.html',{})
+	}
+
+	<a class="case__link link link--uppercase link--underline link--bold link--orange" href="@link" target="_blank">
+		<span class="link__text">подробнее</span>
+		<span class="link__icon">
+			<svg>
+				<use xlink:href="images/sprite.svg#arrow-symbol"></use>
+			</svg>
+		</span>
+	</a>
+</article>

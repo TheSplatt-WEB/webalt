@@ -1,0 +1,75 @@
+<section class="cases">
+	<div class="cases__container container">
+		<h2 class="sr-only">Наши кейсы</h2>
+		<svg class="cases__title-img title-img">
+			<use xlink:href="images/sprite.svg#title-cases"></use>
+		</svg>
+
+		<ul class="cases__content">
+			<li class="cases__item cases__item--big">
+				@include('../components/case.html',{
+				"alt": "Изображение автомобильного диска",
+				"big": "1",
+				"img": "circle",
+				"title": "legenda",
+				"category": "Торговля",
+				"hashCase": "home",
+				"descr": "ИНТЕРНЕТ-МАГАЗИН ШИН И ДИСКОВ",
+				"contentCase": "home",
+				"link": "https://web-alt.ru/works/legenda",
+				})
+			</li>
+
+			<li class="cases__item">
+				@include('../components/case.html',{
+				"alt": "Изображение медицинского препарата",
+				"big": "0",
+				"img": "tables",
+				"title": "Аптека миницен",
+				"category": "Медицина",
+				"hashCase": "home",
+				"descr": "тысячи товаров в 25 городах",
+				"contentCase": "",
+				"link": "https://web-alt.ru/works/apteka-minicen",
+				})
+			</li>
+
+			<li class="cases__item">
+				@include('../components/case.html',{
+				"alt": "Изображение емкостей бытовой химии",
+				"big": "0",
+				"img": "vials",
+				"title": "loveskin",
+				"category": "Торговля",
+				"hashCase": "home",
+				"descr": "Покупки 24/7",
+				"contentCase": "",
+				"link": "https://web-alt.ru/works/love-skin",
+				})
+			</li>
+
+			<li class="cases__item">
+				@include('../components/case.html',{
+				"alt": "Изображение кухонной мебели",
+				"big": "0",
+				"img": "furniture",
+				"title": "intek dv",
+				"category": "Торговля",
+				"hashCase": "home",
+				"descr": "Быстрая загрузка большого магазина",
+				"contentCase": "home",
+				"link": "https://web-alt.ru/works/intek-dv",
+				})
+			</li>
+		</ul>
+
+		<a class="cases__add link link--uppercase link--underline link--bold link--orange" href="https://web-alt.ru/works" target="_blank">
+			<span class="link__text">показать еще</span>
+			<span class="link__icon">
+				<svg>
+					<use xlink:href="images/sprite.svg#arrow-symbol"></use>
+				</svg>
+			</span>
+		</a>
+	</div>
+</section>

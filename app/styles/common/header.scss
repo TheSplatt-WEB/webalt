@@ -1,0 +1,128 @@
+.header {
+	@include adaptive(padding-top, 40, 20, 1);
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9999;
+	transition: background-color 0.3s ease-in, padding 0.3s ease-in;
+
+	&.fixed {
+		@media (max-width: $md3 + px) {
+			background-color: var(--white);
+			padding: 20px 0;
+		}
+
+		.header__body {
+			@media (min-width: $md3 + px) {
+				transform: translate(-100%, 0);
+			}
+		}
+	}
+	// .header__body
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 352px;
+		transition: transform 0.2s ease-in;
+
+		@media (max-width: $md3 + px) {
+			max-width: 100%;
+		}
+	}
+	// .header__logo
+	&__logo {
+		margin-right: 10px;
+
+		@include active;
+	}
+	// .header__burger
+	&__burger {
+		font-size: 14px;
+		font-weight: 400;
+		letter-spacing: 0.015em;
+		display: flex;
+		align-items: center;
+		transition: color 0.3s ease-in, opacity 0.3s ease-in;
+
+		@include active;
+
+		@media (max-width: $md3 + px) {
+			font-size: 0;
+		}
+
+		&.hide {
+			opacity: 0;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--orange);
+
+				&::before {
+					background-color: var(--orange);
+				}
+			}
+		}
+
+		&::before {
+			content:'';
+			width: 16px;
+			height: 14px;
+			mask-image: url("../images/sprite.svg#menu");
+			mask-repeat: no-repeat;
+			mask-size: cover;
+			mask-position: center;
+			background-color: var(--black);
+			margin-right: 10px;
+			transition: background-color 0.3s ease-in;
+
+			@media (max-width: $md3 + px) {
+				margin-right: 0;
+			}
+		}
+	}
+	// .header__btn
+	&__btn {
+		position: fixed;
+		@include adaptive(top, 40, 20, 1);
+		right: 0;
+		background-color: var(--black);
+		padding: 7px 7px 7px 5px;
+		max-width: 280px;
+		width: 100%;
+
+		@include active;
+
+		@media (max-width: $md3 + px) {
+			display: none;
+		}
+	}
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	height: 30px;
+
+	@media (any-hover: hover) {
+		&:hover {
+			.logo__text {
+				opacity: 1;
+				transform: translate(15px, 0);
+			}
+		}
+	}
+	// .logo__img
+	&__img {
+		width: 40px;
+	}
+	// .logo__text
+	&__text {
+		text-transform: lowercase;
+		opacity: 0;
+		transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+	}
+}

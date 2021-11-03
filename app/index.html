@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+@include('./templates/common/head.html',{
+"title":"Интернет-магазины | WEB-Alternative",
+"keywords":"Интернет магазин на заказ, веб-студия, сайты на заказ",
+"Description":"WEB-Alternative С помощью современных технологий создаем продающиеинтернет-магазины с неповторимым дизайном.. 76 место из 6000 компаний по версии Рейтинга Рунета в категории Интернет-магазины",
+"urlSite":"https://web-alt.ru/",
+"imagePreload":"images/logo-big.svg",
+"css":"home"
+})
+
+<body>
+	<div class="wrapper">
+		<div class="content">
+			@include('./templates/common/header.html',{})
+			@include('./templates/home/index.html',{})
+		</div>
+		@include('./templates/common/footer.html',{})
+	</div>
+	@include('./templates/common/components/menu.html',{})
+
+	<div class="progress-scroll-bar">
+		<span></span>
+	</div>
+
+	<!-- @include('_popup.html',{}) -->
+	@include('./templates/common/js.html',{})
+</body>
+
+</html>

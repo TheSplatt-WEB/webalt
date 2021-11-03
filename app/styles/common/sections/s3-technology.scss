@@ -1,0 +1,104 @@
+.technology {
+	@include adaptive(padding-top, 122, 65, 1);
+	@include adaptive(padding-bottom, 146, 0, 1);
+	background-image: url("../images/text-bg.svg");
+	background-repeat: no-repeat;
+	background-size: 10%;
+	background-position: -2% bottom;
+
+	@media (max-width: $md1 + px) {
+		background-size: 20%;
+	}
+
+	@media (max-width: $md2 + px) {
+		background: none;
+	}
+
+	@media (max-width: $md3 + px) {
+		padding-bottom: 0;
+		overflow-x: hidden;
+	}
+	// .technology__title
+	&__title {
+		max-width: 950px;
+		text-indent: 30px;
+		@include adaptive(margin-bottom, 123, 39, 1);
+
+		@media (max-width: $md4 + px) {
+			text-indent: 0;
+		}
+	}
+	// .technology__title-img
+	&__title-img {
+		max-width: 770px;
+		width: 100%;
+		@include adaptive(margin-bottom, 123, 39, 1);
+	}
+	// .technology__list
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		@include adaptive(column-gap, 120, 10, 1);
+		@include adaptive(row-gap, 100, 10, 1);
+		@include adaptive(padding-left, 115, 0, 1);
+
+		@media (max-width: $md3 + px) {
+			grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+			gap: 0;
+			@include adaptive(margin-left, -100, -20, 1);
+			@include adaptive(margin-right, -100, -20, 1);
+			padding: 0;
+		}
+
+		@media (max-width: $md4 + px) {
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		}
+		
+	}
+	// .technology__item
+	&__item {
+		&:nth-child(n + 4) {
+			@media (max-width: $md3 + px) {
+				background-color: var(--darken);
+			}
+
+			svg {
+				fill: var(--orange);
+			}
+
+			.technology__text {
+				background-color: var(--darken);
+			}
+		}
+
+		@media (max-width: $md3 + px) {
+			display: flex;
+			align-items: center;
+			@include adaptive(padding-left, 100, 20, 1);
+			@include adaptive(padding-right, 100, 20, 1);
+		}
+
+		svg {
+			@include adaptive(width, 99, 51, 1);
+			@include adaptive(height, 99, 51, 1);
+			margin-bottom: 42px;
+			margin-left: 20px;
+
+			@media (max-width: $md3 + px) {
+				flex: 1 0 51px;
+				margin-bottom: 0;
+				margin-left: 0;
+			}
+		}
+	}
+	// .technology__text
+	&__text {
+		padding: 10px 20px 20px;
+		@include adaptive(font-size, 18, 14, 1);
+
+		@media (max-width: $md3 + px) {
+			padding: 20px;
+			padding-right: 0;
+		}
+	}
+}

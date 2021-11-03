@@ -1,0 +1,46 @@
+@keyframes arrowSymbol {
+	from {
+		transform: translate(0, 0);
+	}
+
+	25% {
+		transform: translate(100%, -100%);
+	}
+
+	35% {
+		opacity: 0;
+		transform: translate(-100%, 100%);
+	}
+
+	40% {
+		opacity: 1;
+	}
+
+	50% {
+		transform: translate(0, 0);
+	}
+
+	to {
+		transform: translate(0, 0);
+	}
+}
+
+@keyframes marquee1 {
+	from  {
+		transform: translate(100%, 0);
+	}
+
+	to {
+		transform: translate(-100%, 0);
+	}
+}
+
+@keyframes marquee2 {
+	from  {
+		transform: translate(0, 0);
+	}
+
+	to {
+		transform: translate(-200%, 0);
+	}
+}

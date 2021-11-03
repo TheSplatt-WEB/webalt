@@ -1,0 +1,51 @@
+.breadcrumps {
+	@include adaptive(padding-top, 130, 60, 1);
+	@include adaptive(margin-bottom, 105, 43, 1);
+	// .breadcrumps__list
+	&__list {
+		display: flex;
+
+		@media (max-width: $md3 + px) {
+			display: none;
+		}
+	}
+	// .breadcrumps__item
+	&__item {
+		position: relative;
+
+		&:not(:last-child) {
+			padding-right: 17px;
+			margin-right: 11px;
+
+			.breadcrumps__link {
+				@media (any-hover: hover) {
+					&:hover {
+						color: var(--orange);
+					}
+				}
+			}
+
+			&::after {
+				content:'';
+				position: absolute;
+				right: 0;
+				top: 50%;
+				transform: translate(0, -50%);
+				width: 4px;
+				height: 8px;
+				background-image: url("../images/sprite.svg#arrow-right");
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+			}
+		}
+	}
+	// .breadcrumps__link
+	&__link {
+		font-size: 12px;
+		padding: 5px 0;
+		text-transform: lowercase;
+		display: block;
+		transition: color 0.3s ease-in;
+	}
+}

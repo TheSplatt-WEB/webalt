@@ -1,0 +1,102 @@
+//Переменные ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Цвета
+:root {
+	--white: #fff;
+	--orange: #ff5000;
+	--black-origin: #000;
+	--black: #262626;
+	--gray: #393939;
+	--grey: #6c6c6c;
+	--eazy-grey: #9a9a9a;
+	--dark: #b5b5b5;
+	--darken: #dfdddf;
+	--light: #f6f6f6;
+	--ultralight: #f9f9f9;
+	--purple: #9B51E0;
+}
+
+//Шрифты
+$suisselntl: 'SuisseIntl';
+
+//Шрифт по умолчанию body
+$ff: $suisselntl;
+
+//Размеры экранов и контейнеров
+$minWidth: 320; //Минимальная адаптивная ширина экрана
+$maxWidth: 1920; //Макетная ширина экрана
+$maxWidthContainer: 1920; //Максимальная ширина контейнера
+$row: 45px; //Высота строк мобильного меню
+
+//Медиа запросы
+$md1: 1300;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+//Миксины ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//line-clamp
+
+@mixin active {
+	&:active {
+		transform: translate(1px, 1px);
+	}
+}
+
+@mixin line-clamp($font-size, $line-height, $lines-to-show) {
+	display: block;
+	display: -webkit-box;
+	font-size: $font-size + px;
+	max-height: $font-size * $line-height * $lines-to-show + px;
+	line-height: $line-height;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $lines-to-show;
+}
+
+// @mixin line-clamp($lines) {
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+// 	display: block;
+//   display: -webkit-box;
+// 	line-clamp: $lines;
+//   -webkit-line-clamp: $lines;
+//   -webkit-box-orient: vertical;
+// }
+
+//Адаптивное свойство
+@mixin adaptive($property, $startSize, $minSize, $type) {
+	$addSize: $startSize - $minSize;
+	@if $type==1{
+		//Если меньше контейнера
+		#{$property}: $startSize + px;
+		@media (max-width: #{$maxWidth + px}){
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+		}
+	} @else if $type==2{
+		//Если больше контейнера
+		#{$property}: $startSize + px;
+		@media (min-width: #{$maxWidth + px}){
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+		}
+	} @else {
+		//Всегда работает
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+	}
+}
+
+//Подключение шрифтов
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+
+	

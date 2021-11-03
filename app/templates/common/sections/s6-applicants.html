@@ -1,0 +1,65 @@
+<section class="applicants">
+	<div class="applicants__container container">
+		<h2 class="applicants__title title-mini">Готовы поработать с нами?
+			Давайте начнём <span>сейчас!</span></h2>
+		<p class="applicants__descr">Оставьте заявку на <span>бесплатную консультацию</span>, и наши менеджеры свяжутся с вами в ближайшее время.</p>
+
+		<form class="applicants__form form-application" action="">
+			<div class="form-application__column">
+				<div class="form-application__item">
+					<input class="form-application__input" id="applicantsName" type="text" name="Имя соискателя" data-validate-field="applicantsName" required>
+					<label class="form-application__label" for="applicantsName">имя*</label>
+				</div>
+
+				<div class="form-application__item">
+					<input class="form-application__input" id="applicantsPhone" type="tel" name="Телефон соискателя" placeholder="+7 (999) 999 99 99" data-validate-field="applicantsPhone" required>
+					<label class="form-application__label" for="applicantsPhone">Телефон*</label>
+				</div>
+			</div>
+
+			<div class="form-application__column">
+				<div class="form-application__item">
+					<input class="form-application__input" id="applicantsCompany" type="text" name="Компания соискателя">
+					<label class="form-application__label" for="applicantsCompany">Компания</label>
+				</div>
+
+				<div class="form-application__item">
+					<input class="form-application__input" id="applicantsEmail" type="email" name="Email соискателя" data-validate-field="applicantsEmail">
+					<label class="form-application__label" for="applicantsEmail">email</label>
+				</div>
+			</div>
+
+			<div class="form-application__bottom">
+				<div class="form-application__button">
+					<button class="form-application__btn link link--orange link--uppercase link--bold" type="submit">
+						<span class="link__text">отправить</span>
+						<span class="link__icon">
+							<svg>
+								<use xlink:href="images/sprite.svg#arrow-symbol"></use>
+							</svg>
+						</span>
+					</button>
+				</div>
+
+				<div class="form-application__button">
+					<div class="form-application__ticker ticker">
+						<span class="ticker__text">скажи привет</span>
+						<span class="ticker__text">скажи привет</span>
+					</div>
+					<a class="form-application__btn link--underline link link--uppercase link--bold link--black" href="tel:+74212529102">
+						<span class="link__text">+7 (4212) 52-91-02</span>
+						<span class="link__icon">
+							<svg>
+								<use xlink:href="images/sprite.svg#arrow-symbol"></use>
+							</svg>
+						</span>
+					</a>
+				</div>
+
+				<p class="form-application__text">Нажимая на кнопку, Вы даете согласие с
+					<a href="https://web-alt.ru/page/politika-obrabotki-cookie-failov-na-saite" target="_blank">политикой обработки персональных данных</a>
+				</p>
+			</div>
+		</form>
+	</div>
+</section>

@@ -1,0 +1,104 @@
+.link {
+	color: var(--white);
+	font-size: 14px;
+	letter-spacing: 0.015em;
+	text-transform: lowercase;
+	display: inline-flex;
+	align-items: center;
+	transition: color 0.5s ease-in;
+	font-weight: 400;
+	--icon-width: 10px;
+	--icon-height: 10px;
+	--icon-fill: var(--white);
+	--underline-color: var(--black);
+	line-height: 1;
+
+	&:active {
+		transform: translate(1px, 1px);
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			color: var(--orange);
+			.link__text {
+				&::before {
+					width: 100%;
+					background-color: var(--orange);
+				}
+			}
+
+			svg {
+				fill: var(--orange);
+				animation: arrowSymbol 2s 0.5s infinite;
+			}
+		}
+	}
+
+	&--uppercase {
+		text-transform: uppercase;
+		--icon-width: 0.85em;
+		--icon-height: 0.85em;
+	}
+
+	&--bold {
+		font-weight: 700;
+	}
+
+	&--orange {
+		color: var(--orange);
+		--icon-fill: var(--orange);
+	}
+
+	&--black {
+		color: var(--black);
+		--icon-fill: var(--black);
+	}
+
+	&--underline {
+		.link__text {
+			&::after {
+				content:'';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				background-color: var(--underline-color);
+			}
+		}
+	}
+	// .link__text
+	&__text {
+		margin-right: 3px;
+		position: relative;
+		pointer-events: none;
+
+		&::before {
+			content:'';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 1px;
+			width: 0;
+			z-index: 1;
+			background-color: var(--white);
+			transition: width 0.5s ease-in, background-color 0.5s ease-in;
+		}
+	}
+	// .link__icon
+	&__icon {
+		width: var(--icon-width);
+		height: var(--icon-height);
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		overflow: hidden;
+
+		svg {
+			width: 80%;
+			height: 80%;
+			fill: var(--icon-fill);
+			transition: fill 0.3s ease-in;
+		}
+	}
+}

@@ -1,0 +1,42 @@
+.applicants {
+	@include adaptive(padding-top, 257, 101, 1);
+	@include adaptive(padding-bottom, 112, 70, 1);
+	background-image: url("../images/applicants-bg.svg");
+	background-repeat: no-repeat;
+	background-size: 32%;
+	background-position: center right;
+
+	@media (max-width: $md1 + px) {
+		background-position: 130% center;
+	}
+
+	@media (max-width: $md2 + px) {
+		background-size: 50%;
+		background-position: 160% center;
+	}
+
+	@media (max-width: $md3 + px) {
+		background-size: 99%;
+    background-position: 6500% 70%;
+	}
+	// .applicants__title
+	&__title {
+		max-width: 950px;
+		line-height: 1;
+		@include adaptive(margin-bottom, 26, 16, 1);
+	}
+	// .applicants__descr
+	&__descr {
+		@include adaptive(font-size, 22, 16, 1);
+		@include adaptive(margin-bottom, 45, 25, 1);
+		max-width: 710px;
+
+		@media (max-width: $md3 + px) {
+			line-height: 1;
+		}
+
+		span {
+			color: var(--orange);
+		}
+	}
+}

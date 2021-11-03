@@ -1,0 +1,33 @@
+<section class="progress-work">
+	<div class="progress-work__container container">
+		<div class="progress-work__top">
+			<h2 class="sr-only">ход работ</h2>
+			<svg class="progress-work__title-img title-img title-img--black">
+				<use xlink:href="images/sprite.svg#title-progress"></use>
+			</svg>
+
+			<ul class="progress-work__buttons">
+				<li class="progress-work__item">
+					<button class="progress-work__btn" type="button" data-filter="individual-site">индивидуальный</button>
+				</li>
+
+				<li class="progress-work__item">
+					<button class="progress-work__btn active" type="button" data-filter="formulaic-site">Шаблонный сайт</button>
+				</li>
+			</ul>
+		</div>
+
+		<div class="progress-work__body">
+			@include('../common/components/prosressing-work.html',{})
+		</div>
+
+		<button class="progress-work__btn-popup link link--uppercase link--bold link--underline" type="button">
+			<span class="link__text">я хочу начать работу</span>
+			<span class="link__icon">
+				<svg>
+					<use xlink:href="images/sprite.svg#arrow-symbol"></use>
+				</svg>
+			</span>
+		</button>
+	</div>
+</section>

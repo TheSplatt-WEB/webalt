@@ -1,0 +1,554 @@
+.prosressing-work {
+	position: relative;
+	min-width: 100%;
+
+	&__list {
+		display: flex;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+		color: var(--white);
+		counter-reset: counter;
+		padding-top: 21px;
+		padding-bottom: 41px;
+		position: relative;
+
+		@media (max-width: $md1 + px) {
+			padding-right: 0;
+			padding-left: 0;
+		}
+
+		@media (max-width: $md3 + px) {
+			flex-direction: column;
+			width: fit-content;
+			padding-right: 200px;
+		}
+
+		@media (max-width: $md4 + px) {
+			padding-right: 0;
+			max-width: 180px;
+		}
+
+		&::before {
+			content:'';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+			transform: translate(0, -100%);
+			width: 100%;
+			height: 130px;
+			border-right: 2px solid var(--darken);
+			border-bottom: 2px solid var(--darken);
+
+			@media (max-width: $md3 + px) {
+				display: none;
+			}
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 9px;
+			height: 130px;
+			transform: translate(-50%, -2px);
+			mask-image: url("../images/sprite.svg#arrow-long-vertical");
+			mask-repeat: no-repeat;
+			mask-size: cover;
+			mask-position: center;
+			background-color: var(--darken);
+
+			@media (max-width: $md3 + px) {
+				display: none;
+			}
+		}
+	}
+
+	// .prosressing-work__item
+	&__item {
+		width: 20%;
+		display: flex;
+		flex-direction: column;
+		padding: 60px 0 60px 50px;
+		position: relative;
+		counter-increment: counter;
+
+		@media (max-width: $md3 + px) {
+			flex-direction: row;
+			align-items: center;
+			padding: 0;
+			width: 100%;
+		}
+
+		&:nth-child(3),
+		&:nth-child(4) {
+			&::before {
+				color: rgba(#fff, 0.2);
+			}
+			.prosressing-work__text {
+				color: rgba(#FF5000, 0.2);
+			}
+		}
+
+		@media (max-width: $md3 + px) {
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+
+			&:nth-child(5) {
+				margin-bottom: 120px;
+			}
+		}
+
+		&:not(:first-child) {
+			&::after {
+				content:'';
+				position: absolute;
+				top: 40%;
+				right: 100%;
+				@include adaptive(width, 94, 20, 1);
+				height: 9px;
+				mask: url("../images/sprite.svg#arrow-long") center/cover no-repeat;
+				background-color: var(--darken);
+
+				@media (max-width: $md1 + px) {
+					right: auto;
+					left: -20px;
+				}
+
+				@media (max-width: $md3 + px) {
+					width: 16px;
+					top: -16px;
+					right: auto;
+					left: 30px;
+					transform: rotate(90deg);
+				}
+			}
+		}
+
+		&::before {
+			content:'0' counter(counter);
+			@include adaptive(font-size, 64, 40, 1);
+			font-weight: 700;
+			line-height: 1.4;
+
+			@media (max-width: $md3 + px) {
+				margin-right: 24px;
+				min-width: 65px;
+			}
+		}
+	}
+	// .prosressing-work__text
+	&__text {
+		@include adaptive(font-size, 18, 14, 1);
+		line-height: 1.1;
+		color: var(--orange);
+		max-width: 190px;
+
+		@media (max-width: $md2 + px) {
+			font-size: 14px;
+		}
+
+		@media (max-width: $md3 + px) {
+			max-width: 250px;
+		}
+	}
+	//.prosressing-work__top
+	&__top {
+		position: absolute;
+		top: 80px;
+		left: 20px;
+		right: 50px;
+		width: calc(100% - 70px);
+		transform: translate(0, -100%);
+		display: flex;
+
+		@media (max-width: $md2 + px) {
+			right: 20px;
+			width: calc(100% - 40px);
+		}
+
+		@media (max-width: $md3 + px) {
+			height: 365px;
+			width: auto;
+			top: 30px;
+			right: 30px;
+			left: auto;
+			transform: translate(0, 0);
+			flex-direction: column;
+		}
+
+		@media (max-width: $md4 + px) {
+			right: 0;
+			height: 360px;
+		}
+
+		@media (max-width: 374px){
+			right: -10px;
+		}
+
+		.prosressing-work__footnote {
+			color: var(--orange);
+			opacity: 0.5;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			font-size: 12px;
+			border-bottom: 1px solid rgba(#ff5000, 0.5);
+			width: 100%;
+			position: relative;
+			text-align: center;
+
+			@media (max-width: $md3 + px) {
+				height: 100%;
+				flex-direction: row-reverse;
+				border-bottom: none;
+				border-left: 1px solid rgba(#ff5000, 0.5);
+			}
+
+			@media (max-width: $md4 + px) {
+				max-width: 81px;
+			}
+
+			&:not(:last-child) {
+				margin-right: 44px;
+
+				@media (max-width: $md2 + px) {
+					margin-right: 15px;
+				}
+
+				@media (max-width: $md3 + px) {
+					margin-right: 0;
+					margin-bottom: 50px;
+				}
+			}
+
+			&:nth-child(3) {
+				max-width: 15%;
+				width: 100%;
+				margin-left: 70px;
+				position: relative;
+
+				@media (max-width: $md1 + px) {
+					margin-left: 0;
+				}
+
+				@media (max-width: $md3 + px) {
+					max-width: 100%;
+					height: 32px;
+					min-height: 32px;
+					margin-bottom: 30px;
+				}
+
+				@media (max-width: $md4 + px) {
+					max-width: 81px;
+				}
+			}
+
+			&::before {
+				content:'';
+				position: absolute;
+				left: 0;
+				bottom: -30px;
+				width: 100%;
+				height: 29px;
+				border-left: 1px solid rgba(#ff5000, 0.5);
+				border-right: 1px solid rgba(#ff5000, 0.5);
+
+				@media (max-width: $md3 + px) {
+					width: 30px;
+					height: 100%;
+					border-top: 1px solid rgba(#ff5000, 0.5);
+					border-right: none;
+					border-bottom: 1px solid rgba(#ff5000, 0.5);
+					border-left: none;
+					left: -30px;
+					bottom: 0;
+				}
+			}
+
+			&::after {
+				content:'';
+				width: 1px;
+				height: 30px;
+				background-color: var(--orange);
+				opacity: 0.5;
+
+				@media (max-width: $md3 + px) {
+					width: 30px;
+					height: 1px;
+					margin-right: 6px;
+				}
+			}
+		}
+	}
+	//.prosressing-work__bottom
+	&__bottom {
+		border-top: 1px solid rgba(#9B51E0, 0.5);
+		position: absolute;
+		bottom: 70px;
+		right: 50px;
+		width: calc(60% - 70px);
+		transform: translate(0, 100%);
+
+		@media (max-width: $md3 + px) {
+			height: 200px;
+			width: auto;
+			border-top: none;
+			border-left: 1px solid rgba(#9B51E0, 0.5);
+			bottom: 50px;
+			left: auto;
+			right: 30px;
+			transform: translate(0, 0);
+		}
+
+		@media (max-width: $md4 + px) {
+			right: 0;
+			bottom: 30px;
+			height: 220px;
+		}
+
+		&::before,
+		&::after {
+			content:'';
+			width: 1px;
+			height: 30px;
+			position: absolute;
+			top: -30px;
+			background-color: rgba(#9B51E0, 0.5);
+
+			@media (max-width: $md3 + px) {
+				width: 29px;
+				height: 1px;
+				left: -30px;
+				right: auto;
+			}
+		}
+
+		&::before {
+			right: 0;
+
+			@media (max-width: $md3 + px) {
+				top: 0;
+			}
+		}
+
+		&::after {
+			left: 0;
+
+			@media (max-width: $md3 + px) {
+				bottom: 0;
+				top: auto;
+			}
+		}
+
+		.prosressing-work__footnote {
+			color: rgba(#9B51E0, 0.5);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			max-width: 146px;
+			font-size: 12px;
+			top: 81px;
+			margin: 0 auto;
+
+			@media (max-width: $md3 + px) {
+				height: 100%;
+				flex-direction: row;
+			}
+
+			@media (max-width: $md4 + px) {
+				max-width: 81px;
+			}
+
+			&::before {
+				content:'';
+				width: 1px;
+				height: 30px;
+				background-color: rgba(#9B51E0, 0.5);
+
+				@media (max-width: $md3 + px) {
+					width: 30px;
+					height: 1px;
+					margin-right: 6px;
+				}
+			}
+		}
+	}
+	//.prosressing-work__text-start
+	&__text-start {
+		position: absolute;
+		bottom: 90px;
+		left: 50px;
+		@include adaptive(font-size, 72, 40, 1);
+		font-weight: 700;
+		line-height: 0.7;
+		color: var(--gray);
+		max-width: 400px;
+		text-transform: uppercase;
+
+		@media (max-width: $md2 + px) {
+			bottom: 100px;
+			max-width: 300px;
+		}
+
+		@media (max-width: $md3 + px) {
+			bottom: 285px;
+			left: 0;
+			
+			&::before {
+				content:'';
+				position: absolute;
+				height: 9px;
+				mask: url("../images/sprite.svg#arrow-long") center/cover no-repeat;
+				background-color: var(--darken);
+				width: 16px;
+				top: -23px;
+				left: 30px;
+				transform: rotate(90deg);
+			}
+		}
+
+		@media (max-width: $md4 + px) {
+			bottom: 270px;
+		}
+	}
+	//.prosressing-work__not-prod-text
+	&__not-prod-text {
+		position: absolute;
+		right: 0;
+		bottom: 52%;
+		transform: translate(30%, 0);
+		z-index: 2;
+		white-space: nowrap;
+		color: var(--white);
+		padding: 8px 21px;
+		background-color: var(--black-origin);
+		text-transform: uppercase;
+		font-size: 12px;
+		font-weight: 600;
+
+		@media (max-width: $md3 + px) {
+			display: none;
+		}
+	}
+	//.prosressing-work__footnote-fix
+	&__footnote-fix {
+		position: absolute;
+		top: 0;
+		right: 16%;
+		color: rgba(#9B51E0, 0.5);
+		font-size: 12px;
+		font-weight: 400;
+		white-space: nowrap;
+		@include adaptive(width, 320, 200, 1);
+		display: flex;
+		align-items: center;
+
+		@media (max-width: $md1 + px) {
+			white-space: normal;
+			top: -8px;
+			right: 19%;
+			@include adaptive(width, 300, 0, 1);
+		}
+
+		@media (max-width: $md2 + px) {
+			font-size: 9px;
+			right: 16%;
+			top: -6px;
+		}
+
+		@media (max-width: $md3 + px) {
+			top: auto;
+			right: auto;
+			left: 50%;
+			transform: translate(-50%, 0);
+			bottom: 18%;
+			flex-direction: column;
+			width: 60px;
+		}
+
+		@media (max-width: $md4 + px) {
+			bottom: 21%;
+			transform: translate(-30%, 0);
+		}
+
+		&::before,
+		&::after {
+			content:'';
+			position: relative;
+			height: 1px;
+			width: 100%;
+			top: 50%;
+			background-color: rgba(#ff5000, 0.2);
+
+			@media (max-width: $md3 + px) {
+				width: 1px;
+				top: auto;
+			}
+		}
+
+		&::before {
+			margin-right: 15px;
+
+			@media (max-width: $md1 + px) {
+				margin-right: 2px;
+				height: 38px;
+				margin-bottom: 5px;
+			}
+
+			@media (max-width: $md4 + px) {
+				height: 20px;
+			}
+		}
+
+		&::after {
+			margin-left: 15px;
+
+			@media (max-width: $md1 + px) {
+				margin-left: 2px;
+				height: 11px;
+				margin-top: 5px;
+			}
+		}
+	}
+}
+
+.formulaic-site {
+	opacity: 0;
+	pointer-events: none;
+	transform: translate(-5%, 0);
+	transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+
+	&.active {
+		opacity: 1;
+		pointer-events: all;
+		transform: translate(0, 0);
+	}
+}
+
+.individual-site {
+	opacity: 0;
+	pointer-events: none;
+	transform: translate(-95%, 0);
+	transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+
+	&.active {
+		opacity: 1;
+		pointer-events: all;
+		transform: translate(-100%, 0);
+	}
+
+	.prosressing-work__item {
+		&:nth-child(3),
+		&:nth-child(4) {
+			&::before {
+				color: var(--white);
+			}
+			.prosressing-work__text {
+				color: var(--orange);
+			}
+		}
+	}
+}

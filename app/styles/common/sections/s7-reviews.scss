@@ -1,0 +1,253 @@
+.reviews {
+	@include adaptive(padding-top, 58, 39, 1);
+	@include adaptive(padding-bottom, 82, 39, 1);
+	@include adaptive(margin-bottom, 82, 39, 1);
+	// .reviews__container
+	&__container {
+	}
+	// .reviews__title
+	&__title {
+		@include adaptive(margin-bottom, 55, 40, 1);
+	}
+	// .reviews__body
+	&__body {
+		position: relative;
+	}
+	// .reviews__carousel
+	&__carousel {
+	}
+	// .reviews__slide
+	&__slide {
+		@media (max-width: $md2 + px) {
+			padding-bottom: 40px;
+		}
+	}
+	// .reviews__wrapper
+	&__wrapper {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 30px;
+
+		@media (max-width: $md3 + px) {
+			flex-wrap: wrap;
+			justify-content: flex-end;
+		}
+
+		&::before {
+			content:'';
+			@include adaptive(width, 87, 60, 1);
+			@include adaptive(height, 87, 60, 1);
+			background-image: url("../images/reviews/icon.svg");
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+			@include adaptive(margin-right, 37, 10, 1);
+		}
+	}
+	// .reviews__image
+	&__image {
+		max-width: 320px;
+		width: 100%;
+		min-height: 100%;
+		position: relative;
+
+		@media (max-width: $md3 + px) {
+			height: 423px;
+			margin-bottom: 26px;
+		}
+
+		@media (max-width: $md4 + px) {
+			max-width: 220px;
+			height: 307px;
+		}
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: top center;
+		}
+	}
+	// .reviews__btn
+	&__btn {
+		position: absolute;
+		bottom: 55px;
+		@include adaptive(right, -56, 0, 1);
+
+		@media (max-width: $md3 + px) {
+			right: auto;
+			left: -102px;
+			bottom: 0;
+		}
+
+		@media (max-width: 374px){
+			width: 80px;
+			height: 80px;
+			left: -70px;
+			
+		}
+	}
+	// .reviews__info
+	&__info {
+		@include adaptive(padding-top, 53, 26, 1);
+		padding-right: 30px;
+		@include adaptive(padding-bottom, 60, 40, 1);
+		@include adaptive(padding-left, 83, 5, 1);
+		background-color: var(--ultralight);
+		max-width: 980px;
+		width: 100%;
+
+		@media (max-width: $md3 + px) {
+			background-color: transparent;
+			padding: 0;
+		}
+	}
+	// .reviews__name
+	&__name {
+		@include adaptive(font-size, 27, 18, 1);
+		font-weight: 400;
+		@include adaptive(margin-bottom, 33, 26, 1);
+	}
+	//.reviews__org
+	&__org {
+		@media (max-width: $md2 + px) {
+			display: block;
+		}
+
+		span {
+			color: var(--orange);
+			position: relative;
+
+			&::before {
+				content:'';
+				position: absolute;
+				height: 1px;
+				width: 100%;
+				bottom: 0;
+				left: 0;
+				background-color: var(--orange);
+			}
+		}
+	}
+	// .reviews__text
+	&__text {
+		font-size: 14px;
+		font-weight: 500;
+		max-width: 745px;
+
+		@media (max-width: $md3 + px) {
+			font-weight: 300;
+			@include line-clamp(14, 1.6, 5);
+		}
+
+		&.active {
+			@include line-clamp(14, 1.6, 100);
+		}
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: 25px;
+
+				@media (max-width: $md3 + px) {
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+
+	&__btn-rest {
+		margin-left: auto;
+	}
+
+	&__link {
+		--underline-color: var(--orange);
+		display: flex;
+		margin-left: auto;
+
+		@include active;
+
+		@media (max-width: $md2 + px) {
+			margin-left: 0;
+			margin-top: auto;
+		}
+	}
+
+	&__navigation {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		margin-bottom: 30px;
+
+		@media (max-width: $md2 + px) {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			margin-bottom: 0;
+			width: 100%;
+		}
+	}
+
+	&__prev,
+	&__next {
+		width: 25px;
+		height: 25px;
+		mask-image: url("../images/sprite.svg#arrow-next");
+		mask-repeat: no-repeat;
+		mask-size: contain;
+		mask-position: center;
+		background-color: var(--orange);
+
+		@media (max-width: $md2 + px) {
+			display: none;
+		}
+
+		&.swiper-button-disabled {
+			background-color: var(--dark);
+		}
+	}
+
+	&__prev {
+		transform: rotate(180deg);
+
+		&:active {
+			transform: translate(1px, 1px) rotate(180deg);
+		}
+	}
+
+	&__next {
+		@include active;
+	}
+
+	&__pagination {
+		width: fit-content;
+		font-size: 22px;
+		color: var(--black-origin);
+		min-width: 83px;
+		text-align: center;
+
+		@media (max-width: $md2 + px) {
+			display: flex;
+
+			.swiper-pagination-bullet {
+				border-radius: 0;
+				width: 100%;
+				height: 1px;
+				background-color: var(--darken);
+				opacity: 1;
+
+				&:not(:last-child) {
+					margin-right: 17px;
+				}
+			}
+
+			.swiper-pagination-bullet-active {
+				height: 2px;
+				opacity: 1;
+				background-color: var(--orange);
+			}
+		}
+	}
+}

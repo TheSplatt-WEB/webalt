@@ -3,11 +3,11 @@
 
 //Общие стили//
 @import './common/core.scss';
+@import "common/sections/s1-prices-im.scss";
 
 //Компоненты
 @import './common/components/prosressing-work.scss';
 
 //Индивидуальные секции//
-@import './online-store/s1-prices-im.scss';
 @import './online-store/s2-our-help.scss';
 @import './common/sections/s11-progress-work.scss';

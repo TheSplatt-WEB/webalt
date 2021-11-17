@@ -1,0 +1,75 @@
+<section class="cases">
+	<div class="cases__container container">
+		<h2 class="sr-only">Наши кейсы</h2>
+		<svg class="cases__title-img title-img">
+			<use xlink:href="images/sprite.svg#title-cases"></use>
+		</svg>
+
+		<ul class="cases__content">
+			<li class="cases__item cases__item--big">
+				@include('../components/case.html',{
+				"alt": "Изображение коврика для йоги",
+				"big": "1",
+				"img": "yoga",
+				"title": "Йога море",
+				"category": "Развлечение",
+				"hashCase": "context-one",
+				"descr": "ВАГОН ЗАЯВОК ИЗ ИНТЕРНЕТА ЗАКАЗЫВАЛИ?",
+				"contentCase": "yoga",
+				"link": "https://web-alt.ru/works/iogamore",
+				})
+			</li>
+
+			<li class="cases__item">
+				@include('../components/case.html',{
+				"alt": "Изображение автомобиля",
+				"big": "0",
+				"img": "car-travel",
+				"title": "car travel",
+				"category": "Логистика",
+				"hashCase": "context-one",
+				"descr": "КАКОВА КОНВЕРСИЯ",
+				"contentCase": "",
+				"link": "https://web-alt.ru/works/cartravel",
+				})
+			</li>
+
+			<li class="cases__item">
+				@include('../components/case.html',{
+				"alt": "Изображение пони",
+				"big": "0",
+				"img": "pony",
+				"title": "Городская ферма",
+				"category": "Развлечение",
+				"hashCase": "context-one",
+				"descr": "РОСТ ДОХОДА НА <span>120%</span>",
+				"contentCase": "",
+				"link": "https://web-alt.ru/works/gorodskaya-ferma",
+				})
+			</li>
+
+			<li class="cases__item">
+				@include('../components/case.html',{
+				"alt": "Изображение вентиля на трубе",
+				"big": "0",
+				"img": "profi",
+				"title": "Профи",
+				"category": "B2B, строительство",
+				"hashCase": "context",
+				"descr": "рост заявок привел к росту штата",
+				"contentCase": "",
+				"link": "https://web-alt.ru/works/profi",
+				})
+			</li>
+		</ul>
+
+		<a class="cases__add link link--uppercase link--underline link--bold link--orange" href="https://web-alt.ru/works" target="_blank">
+			<span class="link__text">показать еще</span>
+			<span class="link__icon">
+				<svg>
+					<use xlink:href="images/sprite.svg#arrow-symbol"></use>
+				</svg>
+			</span>
+		</a>
+	</div>
+</section>

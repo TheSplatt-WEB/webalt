@@ -1,0 +1,16 @@
+//Подключаем миксины//
+// @import 'common/base/mixins.scss';
+
+//Общие стили//
+@import './common/core.scss';
+@import "common/sections/s1-prices-im.scss";
+
+//Компоненты
+@import './common/components/prices-box.scss';
+
+//Индивидуальные секции//
+@import './contextual/s1-contextual-descr.scss';
+@import './contextual/s2-why-context.scss';
+@import './contextual/s3-benefits.scss';
+@import './contextual/s4-work-context.scss';
+@import './contextual/s5-analize.scss';

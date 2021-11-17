@@ -1,0 +1,339 @@
+.prices-im {
+	@include adaptive(padding-top, 87, 34, 1);
+	@include adaptive(padding-bottom, 76, 65, 1);
+	background-color: var(--black);
+	color: var(--white);
+	background-image: url("../images/planet.svg");
+	background-repeat: no-repeat;
+	background-position: right bottom;
+
+	@media (max-width: $md1 + px) {
+		background-position: 110% bottom;
+	}
+
+	@media (max-width: $md1 + px) {
+		background-position: 120% bottom;
+	}
+
+	@media (max-width: $md3 + px) {
+		background: var(--black);
+	}
+
+	@media (max-width: $md4 + px) {
+		overflow-x: hidden;
+	}
+
+	&--contextual {
+		background-color: var(--orange);
+
+		@media (max-width: $md3 + px) {
+			background-color: var(--orange);
+		}
+
+		.prices-im {
+			&__title {
+				-webkit-text-stroke: 0 var(--black);
+				-webkit-text-fill-color: var(--black);
+				line-height: 0.7;
+			}
+
+			&__names {
+				margin-right: 0;
+				justify-content: space-between;
+				width: 100%;
+
+				@media (max-width: $md2 + px) {
+					flex-wrap: wrap;
+					justify-content: flex-end;
+				}
+			}
+
+			&__item {
+				font-weight: 700;
+				@include adaptive(font-size, 36, 24, 1);
+				color: var(--white);
+				text-transform: none;
+				text-align: right;
+
+				@media (max-width: $md2 + px) {
+					width: 100%;
+					margin-bottom: 11px;
+				}
+
+				&--name {
+					@include adaptive(font-size, 48, 32, 1);
+					text-transform: uppercase;
+					text-align: left;
+
+					@media (max-width: $md2 + px) {
+						margin-bottom: 40px;
+					}
+				}
+
+				span {
+					color: var(--white);
+				}
+			}
+
+			&__wrapper {
+				display: flex;
+				@include adaptive(padding-left, 145, 0, 1);
+				flex-wrap: wrap;
+			}
+
+			&__text {
+				max-width: 1030px;
+				margin-right: 15px;
+
+				span {
+					color: var(--black);
+				}
+			}
+
+			&__image {
+				background-image: url("../images/price-1.svg");
+				width: 330px;
+				margin-top: 35px;
+
+				@media (max-width: $md1 + px) {
+					margin-top: 0;
+				}
+
+				@media (max-width: $md4 + px) {
+					background-position: left top;
+					width: 100%;
+				}
+			}
+
+			&__form {
+				position: relative;
+
+				@media (max-width: $md1 + px) {
+					flex-direction: column;
+				}
+
+				.form-application {
+					&__bottom {
+						max-width: 480px;
+						@include adaptive(right, 280, -500, 1);
+
+						@media (max-width: $md1 + px) {
+							right: auto;
+						}
+					}
+		
+					&__text {
+						max-width: 100%;
+					
+						a {
+							color: var(--black);
+
+							@media (max-width: $md4 + px) {
+								display: block;
+							}
+						}
+					}
+
+					&__btn {
+						@include adaptive(font-size, 36, 20, 1);
+
+						@media (max-width: $md3 + px) {
+							color: var(--white);
+						--icon-fill: var(--white);
+						--underline-color: var(--white);
+						}		
+					}
+				}
+			}
+		}
+	}
+	// .prices-im__container
+	&__container {
+		@include adaptive(padding-right, 239, 15, 1);
+		position: relative;
+	}
+	// .prices-im__title
+	&__title {
+		max-width: 650px;
+		@include adaptive(word-spacing, 90, 30, 1);
+		@include adaptive(margin-bottom, 94, 46, 1);
+
+		@media (max-width: $md2 + px) {
+			max-width: 500px;
+		}
+	}
+	// .prices-im__item
+	&__item {
+		@include adaptive(font-size, 72, 28, 1);
+		font-weight: 700;
+		text-transform: uppercase;
+		color: var(--gray);
+		line-height: 1;
+		margin-bottom: 30px;
+	}
+	// .prices-im__param
+	&__param {
+		@include adaptive(margin-left, 145, 0, 1);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		@include adaptive(font-size, 24, 16, 1);
+		font-weight: 600;
+		text-transform: uppercase;
+		border-bottom: 1px solid var(--white);
+		@include adaptive(margin-bottom, 110, 34, 1);
+	}
+	// .prices-im__names
+	&__names {
+		display: flex;
+		margin-right: auto;
+
+		@media (max-width: $md2 + px) {
+			width: 100%;
+			margin-bottom: 22px;
+		}
+	}
+	// .prices-im__name
+	&__name {
+		&:not(:last-child) {
+			margin-right: 20px;
+			padding-right: 25px;
+			position: relative;
+
+			&::after {
+				content:'\\';
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+		}
+	}
+	// .prices-im__price
+	&__price {
+		max-width: 250px;
+		width: 100%;
+		@include adaptive(margin-right, 235, 10, 1);
+
+		@media (max-width: $md1 + px) {
+			max-width: 200px;
+			margin-right: 15px;
+		}
+
+		span {
+			color: var(--orange);
+		}
+
+		@media (max-width: $md4 + px) {
+			margin-bottom: 22px;
+		}
+	}
+	// .prices-im__time
+	&__time {
+		max-width: 270px;
+		width: 100%;
+
+		span {
+			color: var(--orange);
+		}
+	}
+	// .prices-im__text
+	&__text {
+		@include adaptive(font-size, 32, 16, 1);
+		font-weight: 700;
+		text-transform: uppercase;
+		max-width: 1000px;
+
+		span {
+			color: var(--orange);
+		}
+	}
+	// .prices-im__image
+	&__image {
+		height: 85px;
+		background-image: url("../images/price.svg");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: left top;
+
+		@media (max-width: $md3 + px) {
+			height: 50px;
+		}
+
+		@media (max-width: $md4 + px) {
+			background-position: right top;
+			margin-top: -25px;
+		}
+
+		@media (max-width: 320px){
+			margin-top: 0;
+			background-position: left top;
+		}
+	}
+	// .prices-im__form
+	&__form {
+		--border-color: 255, 255, 255;
+		@include adaptive(padding-left, 145, 0, 1);
+
+		@media (max-width: $md3 + px) {
+			padding-left: 0;
+		}
+
+		.form-application__column {
+			margin-bottom: 22px;
+			@include adaptive(max-width, 450, 100, 1);
+
+			@media (max-width: $md1 + px) {
+				max-width: calc(50% - 50px);
+				margin-bottom: 37px;
+			}
+
+			@media (max-width: $md3 + px) {
+				max-width: 100%;
+			}
+		}
+
+		.form-application__bottom {
+			flex-direction: column;
+			align-items: flex-start;
+			position: absolute;
+			@include adaptive(right, 239, 15, 1);
+			bottom: 0;
+			@include adaptive(max-width, 310, 200, 1);
+			margin-bottom: 0;
+
+			@media (max-width: $md1 + px) {
+				 position: static;
+				 right: auto;
+				 bottom: auto;
+			}
+		}
+
+		.form-application__button {
+			&:not(:last-child) {
+				margin-right: 0;
+				max-width: 100%;
+			}
+		}
+
+		.form-application__btn {
+			max-width: fit-content;
+			@include adaptive(font-size, 48, 32, 1);
+			
+			@media (max-width: $md3 + px) {
+				color: var(--orange);
+				--icon-fill: var(--orange);
+				--underline-color: var(--orange);
+
+				.link__text {
+					&::after {
+						display: block;
+					}
+				}
+			}
+		}
+
+		.form-application__text {
+			max-width: 250px;
+		}
+	}
+}

@@ -14,7 +14,7 @@
 	}
 	// .cases__item
 	&__item {
-		flex: 1 0 300px;
+		flex: 1 0 280px;
 
 		&--big {
 			flex: 0 0 100%;
@@ -23,7 +23,9 @@
 	// .cases__add
 	&__add {
 		font-size: 18px;
+		display: flex;
 		width: fit-content;
+		justify-content: center;
 		margin: 0 auto;
 		--underline-color: var(--orange);
 	}

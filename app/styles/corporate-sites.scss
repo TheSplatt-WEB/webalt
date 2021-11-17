@@ -1,0 +1,14 @@
+//Подключаем миксины//
+// @import 'common/base/mixins.scss';
+
+//Общие стили//
+@import './common/core.scss';
+
+//Компоненты
+@import './common/components/prices-box.scss';
+
+//Индивидуальные секции//
+@import './corporate-sites/s1-examples.scss';
+@import './common/sections/s11-progress-work.scss';
+@import './corporate-sites/s2-development.scss';
+@import './corporate-sites/s3-prices-corp.scss';

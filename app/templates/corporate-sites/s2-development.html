@@ -1,0 +1,87 @@
+<div class="development-sections">
+	<section class="development">
+		<div class="development__container container">
+			<div class="development__top">
+				<h2 class="development__title">Разработка корпоративного сайта <span>включает в себя</span></h2>
+
+				<button class="development__btn btn-development" type="button">
+					<span class="btn-development__text">Посмотреть детальную карту хода работ</span>
+					<span class="btn-development__icon">
+						<svg>
+							<use xlink:href="images/sprite.svg#arrow-symbol"></use>
+						</svg>
+					</span>
+				</button>
+			</div>
+
+			<div class="development__body">
+				<div class="development__wrapper">
+					<ul class="development__list">
+						<li class="development__item">
+							<span class="development__text">Исследование бренда и анализ конкурентов</span>
+						</li>
+						<li class="development__item">
+							<span class="development__text">Разработка <span>блок-схемы</span> и <span>прототипов</span> сайта</span>
+						</li>
+						<li class="development__item">
+							<span class="development__text">Индивидуальный дизайн сайта</span>
+						</li>
+						<li class="development__item">
+							<span class="development__text">Первичное наполнение</span>
+						</li>
+						<li class="development__item">
+							<span class="development__text">Верстка под различные устройства</span>
+						</li>
+						<li class="development__item">
+							<span class="development__text">Удобная система управления</span>
+						</li>
+						<li class="development__item">
+							<span class="development__text">Тестирование и настройка</span>
+						</li>
+						<li class="development__item">
+							<span class="development__text">Установка на хостинг</span>
+						</li>
+						<li class="development__item">
+							<span class="development__text">Гарантийная поддержка</span>
+						</li>
+					</ul>
+
+					<form class="development__form form-application" action="#">
+						<div class="form-application__column">
+							<div class="form-application__item">
+								<input class="form-application__input" id="developedName" type="text" name="Имя соискателя" data-validate-field="developedName" required>
+								<label class="form-application__label" for="developedName">имя*</label>
+							</div>
+
+							<div class="form-application__item">
+								<input class="form-application__input" id="developedPhone" type="tel" name="Телефон соискателя" placeholder="+7 (999) 999 99 99" data-validate-field="developedPhone" required>
+								<label class="form-application__label" for="developedPhone">Телефон*</label>
+							</div>
+
+							<div class="form-application__bottom">
+								<div class="form-application__button">
+									<button class="form-application__btn link link--uppercase" type="submit">
+										<span class="link__text">заказать</span>
+										<span class="link__icon">
+											<svg>
+												<use xlink:href="images/sprite.svg#arrow-symbol"></use>
+											</svg>
+										</span>
+									</button>
+								</div>
+
+								<p class="form-application__text">Нажимая на кнопку, Вы даете согласие с
+									<a href="https://web-alt.ru/page/politika-obrabotki-cookie-failov-na-saite" target="_blank">политикой обработки персональных данных</a>
+								</p>
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<button class="development__button" type="button">показать все</button>
+			</div>
+		</div>
+	</section>
+
+	@include('../common/sections/s11-progress-work.html',{})
+</div>

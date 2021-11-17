@@ -1,4 +1,4 @@
-<section class="top">
+<section class="top @class">
 	<div class="top__container container">
 		<div class="top__body">
 			<div class="top__info">
@@ -9,7 +9,7 @@
 					<span class="title-mini">@titleMini</span>
 				</h1>
 
-				<div class="top__descr">
+				<div class="top__descr @if(descrBigMargin == 1){top__descr--corp}">
 					@descr
 
 					<button class="top__btn link link--uppercase link--bold link--orange link--underline" type="button">
@@ -40,7 +40,7 @@
 				<div class="top__grid"></div>
 			</div>
 
-			<div class="top__image">
+			<div class="top__image @if(cover = 1) {cover}">
 				<img class="top__img" src="images/@img" alt="@alt"></img>
 			</div>
 		</div>

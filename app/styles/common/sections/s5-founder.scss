@@ -71,7 +71,7 @@
 	// .founder__title
 	&__title {
 		@include adaptive(margin-bottom, 72, 40, 1);
-		@include adaptive(font-size, 96, 46, 1);
+		@include adaptive(font-size, 96, 39, 1);
 	}
 	// .founder__info
 	&__info {
@@ -108,6 +108,10 @@
 
 		@media (max-width: $md3 + px) {
 			line-height: 1.5;
+		}
+
+		span {
+			text-transform: uppercase;
 		}
 	}
 	// .founder__text

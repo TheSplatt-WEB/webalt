@@ -13,6 +13,7 @@ body {
 	color: var(--black);
 	background-color: var(--white);
 	overflow-x: hidden;
+	position: relative;
 
 	*::selection {
 		background-color: var(--orange);
@@ -170,7 +171,7 @@ main {
 	text-transform: uppercase;
 
 	&--big {
-		@include adaptive(font-size, 124, 46, 1);
+		@include adaptive(font-size, 124, 39, 1);
 	}
 
 	&--black {

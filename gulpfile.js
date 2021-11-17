@@ -1,6 +1,6 @@
 //Задаем константы ///////////////////////////////////////////////////////////////////////////////////////////////////////
 const { src, dest, watch, series, parallel } = require('gulp'),
-	scss = require('gulp-sass'),
+	scss = require('gulp-sass')(require('sass')),
 	autoprefixer = require('gulp-autoprefixer'),
 	concat = require('gulp-concat'),
 	browsersync = require('browser-sync').create(),
@@ -54,7 +54,7 @@ function styles() {
 		.pipe(autoprefixer({
 			overrideBrowserslist: ['last 5 version'],
 			cascade: false,
-			grid: true
+			grid: true,
 		}))
 		.pipe(webpcss())//Этот плагин устанавливают если нужно использование webp в свойстве background-image в scss, для него так же нужно в файл js добавить скрипт, определяющий поддержку браузером формата wepb.
 		.pipe(dest('dist/css/'))

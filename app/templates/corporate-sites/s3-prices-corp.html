@@ -1,0 +1,43 @@
+<section class="prices-corp">
+	<div class="prices-corp__container container">
+		<h2 class="sr-only">Стоимость услуг</h2>
+		<div class="prices-corp__body">
+			<img class="prices-corp__image" src="images/prices-corp/title.png" alt="Получите план на продвижение сайта бесплатно вместо 5000 рублей при заказе сайта">
+
+			<ul class="prices-corp__list">
+				<li class="prices-corp__item">
+					@include('../common/components/prices-box.html',{
+					"title": "шаблон на <span>1с битрикс</span>",
+					"svg": "bitrix",
+					"time": "15",
+					"descr": "Новые возможности для старого сайта:",
+					"pricesBoxContent": "@include('../components/prices-box-content/bitrix.html',{})",
+					"sum": "60 000",
+					})
+				</li>
+
+				<li class="prices-corp__item">
+					@include('../common/components/prices-box.html',{
+					"title": "индивидуальный сайт на <span>tilda</span>",
+					"svg": "tilda",
+					"time": "25",
+					"descr": "Простые решения для малого бизнеса:",
+					"pricesBoxContent": "@include('../components/prices-box-content/tilda.html',{})",
+					"sum": "150 000",
+					})
+				</li>
+
+				<li class="prices-corp__item">
+					@include('../common/components/prices-box.html',{
+					"title": "индивидуальный на <span>LAravel</span>",
+					"svg": "laravel",
+					"time": "45",
+					"descr": "Уникального сайт, который выделит Вас среди конкурентов:",
+					"pricesBoxContent": "@include('../components/prices-box-content/laravel.html',{})",
+					"sum": "400 000",
+					})
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>

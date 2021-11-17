@@ -132,6 +132,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			}
 		}
+
+		//Клик для вызова лайтбоксов в секции Примеры работ
+		if (targetElement.classList.contains('examples__link')) {
+			body.classList.add('lock');
+			targetElement.closest('.examples__item').querySelector('.examples__lightbox').classList.add('open');
+		}
+		if (targetElement.classList.contains('examples__badge')) {
+			body.classList.add('lock');
+			targetElement.closest('.examples__item').querySelector('.examples__lightbox').classList.add('open');
+		}
+		if (targetElement.classList.contains('examples__lightbox')) {
+			body.classList.remove('lock');
+			targetElement.classList.remove('open');
+		}
+		if (targetElement.classList.contains('examples__image')) {
+			body.classList.remove('lock');
+			targetElement.closest('.examples__lightbox').classList.remove('open');
+		}
+
+		//Клик по кнопке показать еще в секции development
+		if (targetElement.classList.contains('development__button')) {
+			targetElement.classList.add('hidden');
+			targetElement.closest('.development__body').classList.add('visible');
+			targetElement.closest('.development__body').querySelector('.development__wrapper').classList.add('visible');
+		}
+
+		//Клик по кнопке Посмотреть детальную карту хода работ
+		if (targetElement.classList.contains('development__btn')) {
+			targetElement.closest('.development-sections').querySelector('.progress-work').classList.add('visible');
+			targetElement.closest('.development-sections').querySelector('.development').classList.add('hidden');
+		}
+
+		//Скрываем подробную карту работ в секции development
+		if (!targetElement.classList.contains('progress-work__btn') && !targetElement.classList.contains('progress-work__btn-popup') && !targetElement.classList.contains('development__btn')) {
+			const progressWork = document.querySelector('.progress-work');
+			const development = document.querySelector('.development');
+			if (progressWork.classList.contains('visible')) {
+				progressWork.classList.remove('visible');
+				development.classList.remove('hidden');
+			}
+		}
 	}
 
 	// Функция для фиксации хедера
@@ -261,17 +302,24 @@ document.addEventListener('DOMContentLoaded', () => {
 	//Функция задающая маску для инпутов
 	const inputApplicants = document.querySelector('#applicantsPhone');
 	const inputPrices = document.querySelector('#pricesPhone');
+	const inputDeveloped = document.querySelector('#developedPhone');
 	if (inputApplicants) {
 		const maskOptions = {
 			mask: '+{7}(000) 000 00 00'
 		}
 		IMask(inputApplicants, maskOptions);
 	}
-	if (inputApplicants) {
+	if (inputPrices) {
 		const maskOptions = {
 			mask: '+{7}(000) 000 00 00'
 		}
 		IMask(inputPrices, maskOptions);
+	}
+	if (inputDeveloped) {
+		const maskOptions = {
+			mask: '+{7}(000) 000 00 00'
+		}
+		IMask(inputDeveloped, maskOptions);
 	}
 
 	//Функция добавляющая класс всем инпутам в которые что то вписали для стилизации валидации
@@ -318,34 +366,73 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 
 	//Функция валидации формы секции prices
-	const validatePricesForms = function (selector, rules, messages) {
-		new JustValidate('.prices__form', {
-			rules: rules,
-			messages: messages,
-			submitHundler: function (form) {
+	const prices = document.querySelector('.prices__form');
 
+	if (prices) {
+		const validatePricesForms = function (selector, rules, messages) {
+			new JustValidate('.prices__form', {
+				rules: rules,
+				messages: messages,
+				submitHundler: function (form) {
+
+				}
+			})
+		}
+		validatePricesForms('.prices__form', {
+			pricesName: {
+				required: true,
+				minLength: 3
+			},
+			pricesPhone: {
+				required: true,
+				minLength: 17
+			}
+		}, {
+			pricesName: {
+				required: '*это поле необходимо заполнить',
+				minLength: 'Минимум 3 символа'
+			},
+			pricesPhone: {
+				required: '*это поле необходимо заполнить',
+				minLength: '*заполните телефон в формате +7(xxx) xxx xx xx'
 			}
 		})
 	}
-	validatePricesForms('.prices__form', {
-		pricesName: {
-			required: true,
-			minLength: 3
-		},
-		pricesPhone: {
-			required: true,
-			minLength: 17
+
+	//Функция валидации формы секции developed
+	const developeds = document.querySelector('.development__form');
+
+	if (developeds) {
+		const validateDevelopedForms = function (selector, rules, messages) {
+			new JustValidate('.development__form', {
+				rules: rules,
+				messages: messages,
+				submitHundler: function (form) {
+
+				}
+			})
 		}
-	}, {
-		pricesName: {
-			required: '*это поле необходимо заполнить',
-			minLength: 'Минимум 3 символа'
-		},
-		pricesPhone: {
-			required: '*это поле необходимо заполнить',
-			minLength: '*заполните телефон в формате +7(xxx) xxx xx xx'
-		}
-	})
+		validateDevelopedForms('.development__form', {
+			developedName: {
+				required: true,
+				minLength: 3
+			},
+			developedPhone: {
+				required: true,
+				minLength: 17
+			}
+		}, {
+			developedName: {
+				required: '*это поле необходимо заполнить',
+				minLength: 'Минимум 3 символа'
+			},
+			developedPhone: {
+				required: '*это поле необходимо заполнить',
+				minLength: '*заполните телефон в формате +7(xxx) xxx xx xx'
+			}
+		})
+	}
+
 
 	//Подключение слайдера в секции reviews
 	const reviewsSwiper = new Swiper('.reviews__body', {
@@ -376,23 +463,25 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	//Функция для следования стрелки за курсором мыши в секции our-help
-	document.onmousemove = function (event) {
-		let y = event.y;
-		let x = event.x;
-		const helpList = document.querySelector('.our-help__list');
-		const distanceTopToList = helpList.getBoundingClientRect().top;
-		const distanceLeftToList = helpList.getBoundingClientRect().left;
-		const arrowList = document.querySelector('.our-help__arrow svg');
-		let distanceCursorTop = y - distanceTopToList;
-		let distanceCursorLeft = x - distanceLeftToList;
-		let heightList = helpList.offsetHeight;
-		let widthList = helpList.offsetWidth;
+	const helpList = document.querySelector('.our-help__list');
+	if (helpList) {
+		document.onmousemove = function (event) {
+			let y = event.y;
+			let x = event.x;
+			const distanceTopToList = helpList.getBoundingClientRect().top;
+			const distanceLeftToList = helpList.getBoundingClientRect().left;
+			const arrowList = document.querySelector('.our-help__arrow svg');
+			let distanceCursorTop = y - distanceTopToList;
+			let distanceCursorLeft = x - distanceLeftToList;
+			let heightList = helpList.offsetHeight;
+			let widthList = helpList.offsetWidth;
 
-		if (distanceCursorTop >= 0 && distanceCursorTop <= heightList - 10 && distanceCursorLeft >= 0 && distanceCursorLeft <= widthList) {
-			arrowList.style.transform = 'translateY(' + distanceCursorTop + 'px)';
-			arrowList.style.opacity = 1;
-		} else {
-			arrowList.style.opacity = 0;
+			if (distanceCursorTop >= 0 && distanceCursorTop <= heightList - 10 && distanceCursorLeft >= 0 && distanceCursorLeft <= widthList) {
+				arrowList.style.transform = 'translateY(' + distanceCursorTop + 'px)';
+				arrowList.style.opacity = 1;
+			} else {
+				arrowList.style.opacity = 0;
+			}
 		}
 	}
 });

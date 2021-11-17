@@ -20,6 +20,7 @@
 	@media (any-hover: hover) {
 		&:hover {
 			color: var(--orange);
+			--icon-fill: var(--orange);
 			.link__text {
 				&::before {
 					width: 100%;
@@ -28,7 +29,6 @@
 			}
 
 			svg {
-				fill: var(--orange);
 				animation: arrowSymbol 2s 0.5s infinite;
 			}
 		}
@@ -47,11 +47,26 @@
 	&--orange {
 		color: var(--orange);
 		--icon-fill: var(--orange);
+		--underline-color: var(--orange);
 	}
 
 	&--black {
 		color: var(--black);
 		--icon-fill: var(--black);
+	}
+
+	&--white {
+		@media (any-hover: hover) {
+			&:hover {
+				--icon-fill: var(--white);
+				color: var(--white);
+				.link__text {
+					&::before {
+						background-color: var(--white);
+					}
+				}
+			}
+		}
 	}
 
 	&--underline {

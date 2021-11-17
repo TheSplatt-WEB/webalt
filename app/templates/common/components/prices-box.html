@@ -1,0 +1,38 @@
+<article class="prices-corp__box prices-box">
+	<div class="prices-box__inner">
+		<h3 class="prices-box__title">@title</h3>
+
+		<svg class="prices-box__img">
+			<use xlink:href="images/sprite.svg#@svg"></use>
+		</svg>
+
+		<div class="prices-box__timing">
+			от
+			<span class="prices-box__time">@time</span>
+			<span class="prices-box__days">рабочих дней</span>
+		</div>
+
+		<p class="prices-box__descr">@descr</p>
+
+		<ul class="prices-box__list">
+			@pricesBoxContent
+		</ul>
+	</div>
+
+	<button class="prices-box__btn prices-btn" type="button">
+		<span class="prices-btn__price">
+			от
+			<span class="prices-btn__sum">@sum</span>
+			руб.
+		</span>
+
+		<span class="prices-btn__order">
+			<span class="prices-btn__text">заказать</span>
+			<span class="prices-btn__icon">
+				<svg>
+					<use xlink:href="images/sprite.svg#arrow-symbol"></use>
+				</svg>
+			</span>
+		</span>
+	</button>
+</article>

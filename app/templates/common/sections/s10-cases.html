@@ -1,0 +1,61 @@
+<section class="cases">
+	<div class="cases__container container">
+		<h2 class="sr-only">Наши кейсы</h2>
+		<svg class="cases__title-img title-img">
+			<use xlink:href="images/sprite.svg#title-cases"></use>
+		</svg>
+
+		<ul class="cases__content">
+			<li class="cases__item">
+				@include('../components/case.html',{
+				"alt": "Изображение медицинского препарата",
+				"big": "0",
+				"img": "dgt",
+				"title": "дГТ",
+				"category": "Строительство",
+				"hashCase": "laravel",
+				"descr": "ЯРКАЯ УПАКОВКА Ж/Д",
+				"contentCase": "",
+				"link": "https://web-alt.ru/works/dalgiprotrans",
+				})
+			</li>
+
+			<li class="cases__item">
+				@include('../components/case.html',{
+				"alt": "Изображение емкостей бытовой химии",
+				"big": "0",
+				"img": "iceberg",
+				"title": "iceberg",
+				"category": "Медицина",
+				"hashCase": "iceberg",
+				"descr": "айденткика и новый сайт на 1с битрикс",
+				"contentCase": "",
+				"link": "https://web-alt.ru/works/iceberg",
+				})
+			</li>
+
+			<li class="cases__item">
+				@include('../components/case.html',{
+				"alt": "Изображение кухонной мебели",
+				"big": "0",
+				"img": "river",
+				"title": "River club",
+				"category": "Спорт",
+				"hashCase": "laravel",
+				"descr": "САЙТ КАТЕГОРИИ ЛЮКС",
+				"contentCase": "",
+				"link": "https://web-alt.ru/works/river-club",
+				})
+			</li>
+		</ul>
+
+		<a class="cases__add link link--uppercase link--underline link--bold link--orange" href="https://web-alt.ru/works" target="_blank">
+			<span class="link__text">показать еще</span>
+			<span class="link__icon">
+				<svg>
+					<use xlink:href="images/sprite.svg#arrow-symbol"></use>
+				</svg>
+			</span>
+		</a>
+	</div>
+</section>

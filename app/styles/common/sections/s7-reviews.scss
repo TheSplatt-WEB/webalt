@@ -2,9 +2,6 @@
 	@include adaptive(padding-top, 58, 39, 1);
 	@include adaptive(padding-bottom, 82, 39, 1);
 	@include adaptive(margin-bottom, 82, 39, 1);
-	// .reviews__container
-	&__container {
-	}
 	// .reviews__title
 	&__title {
 		@include adaptive(margin-bottom, 55, 40, 1);
@@ -15,6 +12,7 @@
 	}
 	// .reviews__carousel
 	&__carousel {
+		box-sizing: border-box;
 	}
 	// .reviews__slide
 	&__slide {
@@ -27,22 +25,22 @@
 		display: flex;
 		justify-content: center;
 		margin-bottom: 30px;
+		min-height: 420px;
 
 		@media (max-width: $md3 + px) {
 			flex-wrap: wrap;
 			justify-content: flex-end;
 		}
-
-		&::before {
-			content:'';
+	}
+	//.reviews__icon
+	&__icon {
 			@include adaptive(width, 87, 60, 1);
-			@include adaptive(height, 87, 60, 1);
-			background-image: url("../images/reviews/icon.svg");
-			background-repeat: no-repeat;
-			background-size: contain;
-			background-position: center;
 			@include adaptive(margin-right, 37, 10, 1);
-		}
+			margin-top: 20px;
+
+			img {
+				width: 100%;
+			}
 	}
 	// .reviews__image
 	&__image {
@@ -57,7 +55,7 @@
 		}
 
 		@media (max-width: $md4 + px) {
-			max-width: 220px;
+			max-width: 210px;
 			height: 307px;
 		}
 

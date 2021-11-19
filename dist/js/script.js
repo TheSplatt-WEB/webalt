@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var progressWork = document.querySelector('.progress-work');
       var development = document.querySelector('.development');
 
-      if (progressWork.classList.contains('visible')) {
+      if (progressWork && progressWork.classList.contains('visible')) {
         progressWork.classList.remove('visible');
         development.classList.remove('hidden');
       }
@@ -326,6 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var inputApplicants = document.querySelector('#applicantsPhone');
   var inputPrices = document.querySelector('#pricesPhone');
   var inputDeveloped = document.querySelector('#developedPhone');
+  var inputWhyContext = document.querySelector('#whyContextPhone');
 
   if (inputApplicants) {
     var maskOptions = {
@@ -346,6 +347,13 @@ document.addEventListener('DOMContentLoaded', function () {
       mask: '+{7}(000) 000 00 00'
     };
     IMask(inputDeveloped, _maskOptions2);
+  }
+
+  if (inputWhyContext) {
+    var _maskOptions3 = {
+      mask: '+{7}(000) 000 00 00'
+    };
+    IMask(inputWhyContext, _maskOptions3);
   } //Функция добавляющая класс всем инпутам в которые что то вписали для стилизации валидации
 
 
@@ -454,6 +462,39 @@ document.addEventListener('DOMContentLoaded', function () {
         minLength: '*заполните телефон в формате +7(xxx) xxx xx xx'
       }
     });
+  } //Функция валидации формы секции why-context
+
+
+  var whyContext = document.querySelector('.why-context__form');
+
+  if (whyContext) {
+    var _validateDevelopedForms = function _validateDevelopedForms(selector, rules, messages) {
+      new JustValidate('.why-context__form', {
+        rules: rules,
+        messages: messages,
+        submitHundler: function submitHundler(form) {}
+      });
+    };
+
+    _validateDevelopedForms('.why-context__form', {
+      whyContextName: {
+        required: true,
+        minLength: 3
+      },
+      whyContextPhone: {
+        required: true,
+        minLength: 17
+      }
+    }, {
+      whyContextName: {
+        required: '*это поле необходимо заполнить',
+        minLength: 'Минимум 3 символа'
+      },
+      whyContextPhone: {
+        required: '*это поле необходимо заполнить',
+        minLength: '*заполните телефон в формате +7(xxx) xxx xx xx'
+      }
+    });
   } //Подключение слайдера в секции reviews
 
 
@@ -503,4 +544,52 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
   }
+}); //Подключение слайдера в секции work-context
+
+var contextButtonsSwiper = new Swiper('.work-context__slider-btn', {
+  watchOverflow: true,
+  slidesPerView: 5,
+  slideToClickedSlide: true // navigation: {
+  // 	nextEl: '.reviews__next',
+  // 	prevEl: '.reviews__prev',
+  // },
+  // pagination: {
+  // 	el: '.reviews__pagination',
+  // 	type: 'bullets',
+  // },
+  // breakpoints: {
+  // 	'991.98': {
+  // 		pagination: {
+  // 			autoHeight: false,
+  // 			el: '.reviews__pagination',
+  // 			type: 'fraction',
+  // 		},
+  // 	},
+  // }
+
 });
+var contextContentSwiper = new Swiper('.work-context__slider', {
+  watchOverflow: true,
+  slidesPerView: 1,
+  grabCursor: true,
+  autoHeight: true // navigation: {
+  // 	nextEl: '.reviews__next',
+  // 	prevEl: '.reviews__prev',
+  // },
+  // pagination: {
+  // 	el: '.reviews__pagination',
+  // 	type: 'bullets',
+  // },
+  // breakpoints: {
+  // 	'991.98': {
+  // 		pagination: {
+  // 			autoHeight: false,
+  // 			el: '.reviews__pagination',
+  // 			type: 'fraction',
+  // 		},
+  // 	},
+  // }
+
+});
+contextButtonsSwiper.controller.control = contextContentSwiper;
+contextContentSwiper.controller.control = contextButtonsSwiper;

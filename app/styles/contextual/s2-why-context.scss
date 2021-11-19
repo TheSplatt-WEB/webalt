@@ -1,38 +1,193 @@
 .why-context {
+	@include adaptive(margin-bottom, 168, 47, 1);
 	// .why-context__inner
 	&__inner {
+		display: flex;
+		color: var(--white);
+		@include adaptive(font-size, 18, 15, 1);
+		font-weight: 400;
+
+		@media (max-width: $md1 + px) {
+			display: block;
+		}
+
+		@media (max-width: $md3 + px) {
+			font-weight: 300;
+		}
 	}
 	// .why-context__column
 	&__column {
+		@include adaptive(padding-top, 114, 57, 1);
+		@include adaptive(padding-bottom, 94, 55, 1);
 		// .why-context__column--left
 		&--left {
+			background-color: var(--black);
+			@include adaptive(padding-left, 100, 15, 1);
+			padding-right: 15px;
 		}
 		// .why-context__column--right
 		&--right {
+			background-color: var(--orange);
+			@include adaptive(padding-right, 100, 15, 1);
+			@include adaptive(padding-left, 100, 15, 1);
+			max-width: 660px;
+			width: 100%;
+			text-align: right;
+
+			@media (max-width: $md1 + px) {
+				max-width: 100%;
+				text-align: left;
+			}
 		}
 	}
 	// .why-context__title
 	&__title {
+		color: var(--white);
+		margin-bottom: 58px;
+
+		@media (max-width: $md3 + px) {
+			margin-bottom: 43px;
+		}
+	}
+	// .why-context__info
+	&__info {
+		@include adaptive(padding-left, 135, 0, 1);
 	}
 	// .why-context__list
 	&__list {
+		margin-bottom: 30px;
 	}
 	// .why-context__item
 	&__item {
+		list-style: outside;
+
+		&:not(:last-child) {
+			margin-bottom: 15px;
+		}
+	}
+	// .why-context__text
+	&__descr {
+		@include adaptive(margin-bottom, 83, 32, 1);
+
+		span {
+			color: var(--orange);
+		}
+	}
+	// .why-context__wrapper
+	&__wrapper {
+		position: relative;
 	}
 	// .why-context__text
 	&__text {
+		@include adaptive(font-size, 32, 18, 1);
+		font-weight: 700;
+		text-transform: uppercase;
+		line-height: 0.9;
+		padding-right: 250px;
+
+		@media (max-width: $md1 + px) {
+			padding-right: 0;
+			max-width: 700px;
+		}
+
+		span {
+			color: var(--orange);
+		}
+	}
+	// .why-context__sale
+	&__sale {
+		display: inline-block;
+		background-image: url("../images/price-2.svg");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: left top;
+		@include adaptive(width, 257, 220, 1);
+		height: 95px;
+		position: absolute;
+		bottom: -56px;
+		right: 0;
+
+		@media (max-width: $md1 + px) {
+			right: auto;
+			left: 625px;
+			bottom: -75px;
+		}
+
+		@media (max-width: $md2 + px) {
+			left: auto;
+			right: 0;
+		}
+
+		@media (max-width: $md3 + px) {
+			position: static;
+			left: auto;
+			right: auto;
+			bottom: auto;
+		}
+	}
+	// .why-context__form
+	&__form {
+	}
+
+	.form-application {
+		&__bottom {
+			display: block;
+		}
+
+		&__input {
+			border-bottom: 2px solid var(--orange);
+		}
+
+		&__btn {
+			@media (any-hover: none) {
+				--icon-fill: var(--orange);
+				color: var(--orange);
+
+				.link__text {
+					text-decoration: underline;
+					margin-bottom: 6px;
+				}
+			}
+		}
+
+		&__text {
+			max-width: 243px;
+
+			a {
+				display: inline-block;
+			}
+		}
 	}
 	// .why-context__name
 	&__name {
+		@include adaptive(font-size, 36, 24, 1);
+		line-height: 1;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 19px;
+
+		@media (max-width: $md3 + px) {
+			margin-bottom: 24px;
+		}
 	}
 	// .why-context__image
 	&__image {
+		@include adaptive(margin-bottom, 19, 38, 1);
 	}
 	// .why-context__img
 	&__img {
+		border-radius: 13px;
+		width: 100%;
+
+		@media (max-width: $md1 + px) {
+			max-width: 800px;
+		}
 	}
 	// .why-context__link
 	&__link {
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 1;
+		--underline-color: var(--white);
 	}
 }

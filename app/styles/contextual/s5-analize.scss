@@ -1,0 +1,113 @@
+.analize-context {
+	background-color: var(--black);
+	@include adaptive(padding-top, 127, 57, 1);
+	@include adaptive(padding-bottom, 90, 103, 1);
+	background-image: url("../images/analize-bg.png");
+	background-repeat: no-repeat;
+	background-position: right 98px top 137px;
+
+	@media (max-width: $md1 + px) {
+		background-position: right 0 top 57px;
+		background-size: 50%;
+	}
+
+	@media (max-width: $md3 + px) {
+		background-size: 70%;
+	}
+
+	@media (max-width: $md4 + px) {
+		background-size: contain;
+	}
+	// .analize-context__title
+	&__title {
+		color: var(--white);
+		@include adaptive(font-size, 48, 24, 1);
+		max-width: 840px;
+		margin-bottom: 47px;
+
+		@media (max-width: $md1 + px) {
+			margin-bottom: 185px;
+		}
+
+		@media (max-width: $md4 + px) {
+			@include adaptive(margin-bottom, 1300, 150, 1);
+		}
+	}
+	// .analize-context__subtitle
+	&__subtitle {
+		@include adaptive(font-size, 24, 18, 1);
+		font-weight: 700;
+		line-height: 1.4;
+		color: var(--orange);
+		text-transform: uppercase;
+		margin-bottom: 13px;
+
+		@media (max-width: $md3 + px) {
+			margin-bottom: 22px;
+		}
+	}
+	// .analize-context__list
+	&__list {
+		padding-left: 20px;
+		margin-bottom: 66px;
+		max-width: 740px;
+
+		@media (max-width: $md3 + px) {
+			margin-bottom: 59px;
+		}
+	}
+	// .analize-context__row
+	&__row {
+		list-style: outside;
+		@include adaptive(font-size, 18, 15, 1);
+		color: var(--white);
+
+		&:not(:last-child) {
+			margin-bottom: 8px;
+		}
+
+		@media (max-width: $md3 + px) {
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+	// .analize-context__descr
+	&__descr {
+		@include adaptive(font-size, 18, 15, 1);
+		line-height: 1.45;
+		margin-bottom: 50px;
+	}
+	// .analize-context__cards
+	&__cards {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	// .analize-context__card
+	&__card {
+		max-width: 415px;
+		width: 100%;
+
+		&:not(:last-child) {
+			margin-right: 20px;
+		}
+
+		@media (max-width: $md2 + px) {
+			max-width: calc(50% - 10px);
+		}
+
+		@media (max-width: $md4 + px) {
+			max-width: 100%;
+
+			&:not(:last-child) {
+				margin-right: 0px;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 30px;
+			}
+		}
+	}
+}
+
+@import "common/components/analize-card.scss";

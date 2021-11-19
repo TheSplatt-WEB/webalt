@@ -1,17 +1,79 @@
 .contextual-descr {
-	// .contextual-descr__container
-	&__container {
+	background-image: url("../images/context-descr-bg.png");
+	background-repeat: no-repeat;
+	background-position: right top;
+	padding-top: 30px;
+	@include adaptive(padding-bottom, 101, 25, 1);
+
+	@media (max-width: $md2 + px) {
+		background-size: 60%;
+	}
+
+	@media (max-width: $md3 + px) {
+		background-image: url("../images/context-descr-bg-mobile.png");
+	}
+
+	@media (max-width: $md4 + px) {
+		background-size: contain;
 	}
 	// .contextual-descr__title
 	&__title {
+		@include adaptive(font-size, 48, 32, 1);
+		margin-bottom: 49px;
+
+		@media (max-width: $md1 + px) {
+			margin-bottom: 240px;
+		}
+
+		@media (max-width: $md3 + px) {
+			@include adaptive(margin-bottom, 800, 100, 1);
+		}
+
+		@media (max-width: $md4 + px) {
+			@include adaptive(margin-bottom, 1500, 200, 1);
+		}
 	}
 	// .contextual-descr__list
 	&__list {
+		@include adaptive(padding-left, 165, 0, 1);
+		margin-bottom: 58px;
+
+		@media (max-width: $md4 + px) {
+			margin-bottom: 0;
+		}
 	}
 	// .contextual-descr__item
 	&__item {
+		list-style: outside;
+		@include adaptive(font-size, 18, 15, 1);
+		font-weight: 400;
+		line-height: 1.1;
+
+		&:not(:last-child) {
+			margin-bottom: 30px;
+		}
+
+		@media (max-width: $md3 + px) {
+			font-weight: 300;
+			line-height: 1.4;
+
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+		}
 	}
 	// .contextual-descr__btn
 	&__btn {
+		@include adaptive(margin-left, 165, 0, 1);
+		background-color: var(--orange);
+		padding: 23px;
+		font-weight: 700;
+		line-height: 1;
+		text-transform: uppercase;
+		color: var(--white);
+
+		@media (max-width: $md4 + px) {
+			display: none;
+		}
 	}
 }

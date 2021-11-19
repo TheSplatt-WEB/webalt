@@ -219,6 +219,12 @@ main {
 		}
 	}
 
+	&--mobile {
+		@media (min-width: $md4 + px) {
+			display: none;
+		}
+	}
+
 	&--black {
 		fill: var(--black);
 		stroke: var(--white);

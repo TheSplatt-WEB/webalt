@@ -1,26 +1,105 @@
 .benefits {
+	@include adaptive(margin-bottom, 130, 78, 1);
 	// .benefits__container
 	&__container {
 	}
 	// .benefits__title
 	&__title {
+		max-width: 1050px;
+		@include adaptive(margin-bottom, 90, 38, 1);
 	}
 	// .benefits__list
 	&__list {
+		column-count: 2;
+		@include adaptive(margin-bottom, 113, 32, 1);
+
+		@media (max-width: $md2 + px) {
+			column-count: auto;
+		}
 	}
 	// .benefits__item
 	&__item {
+		display: flex;
+		margin-right: 15px;
+
+		&:not(:last-child) {
+			@include adaptive(margin-bottom, 90, 20, 1);
+		}
+
+		@media (max-width: $md3 + px) {
+			margin-right: 0;
+		}
 	}
 	// .benefits__icon
 	&__icon {
+		fill: var(--orange);
+		@include adaptive(min-width, 90, 51, 1);
+		@include adaptive(width, 90, 51, 1);
+		@include adaptive(height, 90, 51, 1);
+		@include adaptive(margin-right, 58, 20, 1);
 	}
 	// .benefits__info
 	&__info {
+		max-width: 416px;
+
+		@media (max-width: $md2 + px) {
+			max-width: 100%;
+		}
 	}
 	// .benefits__name
 	&__name {
+		@include adaptive(font-size, 22, 15, 1);
+		font-weight: 500;
+		line-height: 1;
+		margin-bottom: 9px;
+
+		@media (max-width: $md3 + px) {
+			margin-bottom: 5px;
+		}
 	}
 	// .benefits__descr
 	&__descr {
+		@include adaptive(font-size, 16, 11, 1);
+	}
+	// .benefits__inner
+	&__inner {
+		display: flex;
+		align-items: center;
+
+		@media (max-width: $md3 + px) {
+			flex-direction: column-reverse;
+		}
+	}
+	// .benefits__subtitle
+	&__subtitle {
+		@include adaptive(font-size, 36, 28, 1);
+		margin-bottom: 26px;
+		max-width: 1000px;
+
+		@media (max-width: $md3 + px) {
+			line-height: 1.2;
+			margin-bottom: 23px;
+		}
+
+		span {
+			color: var(--orange);
+		}
+	}
+	// .benefits__subdescr
+	&__subdescr {
+		@include adaptive(font-size, 24, 16, 1);
+		max-width: 850px;
+	}
+	// .benefits__img
+	&__img {
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		width: 750px;
+		@include adaptive(height, 750, 340, 1);
+
+		@media (max-width: $md3 + px) {
+			width: 100%;
+		}
 	}
 }

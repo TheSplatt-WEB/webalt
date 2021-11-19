@@ -70,6 +70,7 @@
 		background-image: url("../images/herro-bg-2.svg");
 		background-repeat: no-repeat;
 		background-position: right top;
+		@include adaptive(padding-bottom, 110, 57, 1);
 
 		@media (max-width: $md1 + px) {
 			background-size: 50%;

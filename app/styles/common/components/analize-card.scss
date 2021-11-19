@@ -1,0 +1,138 @@
+.analize-card {
+	background-color: var(--lighting);
+	// .analize-card__inner
+	&__inner {
+		padding: 30px 30px 60px;
+
+		@media (max-width: $md3 + px) {
+			padding: 30px 25px;
+		}
+	}
+	// .analize-card__title
+	&__title {
+		@include adaptive(font-size, 36, 24, 1);
+		font-weight: 700;
+		line-height: 1.1;
+		margin-bottom: 37px;
+
+		@media (max-width: $md3 + px) {
+			margin-bottom: 27px;
+		}
+	}
+	// .analize-card__list
+	&__list {
+	}
+	// .analize-card__row
+	&__row {
+		@include adaptive(font-size, 16, 14, 1);
+		line-height: 1.1;
+		padding-left: 34px;
+		position: relative;
+
+		&:not(:last-child) {
+			margin-bottom: 32px;
+		}
+
+		@media (max-width: $md3 + px) {
+			&:not(:last-child) {
+				margin-bottom: 25px;
+			}
+		}
+
+		&::before {
+			content:'';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 16px;
+			height: 16px;
+			border: 1px solid var(--light-blue);
+		}
+
+		&::after {
+			content:'';
+			position: absolute;
+			top: 3px;
+			left: 3px;
+			width: 11px;
+			height: 9px;
+			mask: url("../images/sprite.svg#check") center / cover no-repeat;
+			background-color: var(--light-blue);
+		}
+		// .analize-card__row--disabled
+		&--disabled {
+			&::before {
+				border-color: var(--dark-orange);
+			}
+
+			&::after {
+				mask: url("../images/sprite.svg#cross") center / cover no-repeat;
+				background-color: var(--dark-orange);
+				width: 10px;
+				height: 10px;
+			}
+		}
+	}
+	// .analize-card__btn
+	&__btn {
+	}
+}
+
+.analize-btn {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	transition: background-color 0.3s;
+
+	@media (any-hover: none) {
+		background-color: var(--orange);
+		--color-text: var(--white);
+		--icon-fill: var(--white);
+	}
+
+	@media (any-hover: hover) {
+		--color-text: var(--dark);
+		--icon-fill: var(--dark);
+
+		&:hover {
+			--color-text: var(--black);
+			--icon-fill: var(--black);
+			background-color: var(--orange);
+
+			.analize-btn__inner {
+				transform: translate(0, 0);
+			}
+		}
+	}
+	// .analize-btn__inner
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding: 24px;
+		@include adaptive(padding-left, 70, 50, 1);
+		transition: transform 0.3s;
+
+		@media (any-hover: hover) {
+			transform: translate(calc(-100% + 140px), 0);
+		}
+	}
+	// .analize-btn__text
+	&__text {
+		font-size: 23px;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: var(--color-text);
+		transition: color 0.3s;
+	}
+	// .analize-btn__icon
+	&__icon {
+		svg {
+			@include adaptive(width, 90, 52, 1);
+			@include adaptive(height, 90, 52, 1);
+			fill: var(--icon-fill);
+			transition: fill 0.3s;
+		}
+	}
+}

@@ -102,6 +102,13 @@ document.addEventListener('DOMContentLoaded', function () {
       targetElement.closest('.reviews__info').querySelector('.reviews__text').classList.add('active');
       targetElement.classList.add('hide');
       reviewsSwiper.update();
+    } //Клик по кнопке остальное для показа всего текста и скрытия самой кнопки в секции work-context
+
+
+    if (targetElement.classList.contains('work-context__btn-rest') && !targetElement.classList.contains('hide')) {
+      targetElement.closest('.work-context__item').querySelector('.work-context__descr').classList.add('active');
+      targetElement.classList.add('hide');
+      contextContentSwiper.update();
     } //Клик по кнопки фильтрации контента в секции progress-work
 
 
@@ -169,6 +176,23 @@ document.addEventListener('DOMContentLoaded', function () {
         progressWork.classList.remove('visible');
         development.classList.remove('hidden');
       }
+    } //Клик по кнопке в секции work-context
+
+
+    if (targetElement.classList.contains('work-context__btn')) {
+      var workBtn = document.querySelectorAll('.work-context__btn');
+
+      for (var _i3 = 0; _i3 < workBtn.length; _i3++) {
+        var workBtnItem = workBtn[_i3];
+
+        if (workBtnItem.classList.contains('active')) {
+          workBtnItem.classList.remove('active');
+          targetElement.classList.add('active');
+        }
+      }
+
+      var btnDataFilter = targetElement.dataset.filter;
+      contextContentSwiper.slideTo(btnDataFilter, 300);
     }
   } // Функция для фиксации хедера
 
@@ -546,50 +570,59 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 }); //Подключение слайдера в секции work-context
 
-var contextButtonsSwiper = new Swiper('.work-context__slider-btn', {
-  watchOverflow: true,
-  slidesPerView: 5,
-  slideToClickedSlide: true // navigation: {
-  // 	nextEl: '.reviews__next',
-  // 	prevEl: '.reviews__prev',
-  // },
-  // pagination: {
-  // 	el: '.reviews__pagination',
-  // 	type: 'bullets',
-  // },
-  // breakpoints: {
-  // 	'991.98': {
-  // 		pagination: {
-  // 			autoHeight: false,
-  // 			el: '.reviews__pagination',
-  // 			type: 'fraction',
-  // 		},
-  // 	},
-  // }
-
-});
 var contextContentSwiper = new Swiper('.work-context__slider', {
   watchOverflow: true,
   slidesPerView: 1,
   grabCursor: true,
-  autoHeight: true // navigation: {
-  // 	nextEl: '.reviews__next',
-  // 	prevEl: '.reviews__prev',
-  // },
-  // pagination: {
-  // 	el: '.reviews__pagination',
-  // 	type: 'bullets',
-  // },
-  // breakpoints: {
-  // 	'991.98': {
-  // 		pagination: {
-  // 			autoHeight: false,
-  // 			el: '.reviews__pagination',
-  // 			type: 'fraction',
-  // 		},
-  // 	},
-  // }
+  autoHeight: true,
+  pagination: {
+    el: '.work-context__pagination',
+    type: 'bullets'
+  }
+}); //Добавляем зависимость активной кнопки от активного слайда
 
-});
-contextButtonsSwiper.controller.control = contextContentSwiper;
-contextContentSwiper.controller.control = contextButtonsSwiper;
+contextContentSwiper.on('slideChange', function () {
+  var slideIndex = this.realIndex;
+  var btnCurrent = document.querySelectorAll('.work-context__btn');
+
+  for (var i = 0; i < btnCurrent.length; i++) {
+    var btnCurrentItem = btnCurrent[i];
+    btnCurrentItem.classList.remove('active');
+
+    if (btnCurrentItem.dataset.filter == slideIndex) {
+      btnCurrentItem.classList.add('active');
+      var hghjgj = btnCurrentItem.getBoundingClientRect().left;
+      var scroll = document.querySelector('.work-context__wrapper');
+      var speed = 1; // Скорость скролла.
+
+      scroll.scrollBy({
+        left: hghjgj - 50,
+        behavior: "smooth"
+      });
+    }
+  }
+}); //Скролл кнопок в секции work-context
+
+(function () {
+  var speed = 1; // Скорость скролла.
+
+  var scroll = document.querySelector('.work-context__wrapper');
+  var left = 0; // отпустили мышку - сохраняем положение скролла
+
+  var drag = false;
+  var coorX = 0; // нажали мышку - сохраняем координаты.
+
+  scroll.addEventListener('mousedown', function (e) {
+    drag = true;
+    coorX = e.pageX - this.offsetLeft;
+  });
+  document.addEventListener('mouseup', function () {
+    drag = false;
+    left = scroll.scrollLeft;
+  });
+  scroll.addEventListener('mousemove', function (e) {
+    if (drag) {
+      this.scrollLeft = left - (e.pageX - this.offsetLeft - coorX) * speed;
+    }
+  });
+})();

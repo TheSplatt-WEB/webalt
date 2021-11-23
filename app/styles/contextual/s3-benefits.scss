@@ -12,9 +12,14 @@
 	&__list {
 		column-count: 2;
 		@include adaptive(margin-bottom, 113, 32, 1);
+		@include adaptive(padding-left, 145, 0, 1);
 
 		@media (max-width: $md2 + px) {
 			column-count: auto;
+		}
+
+		@media (max-width: $md4 + px) {
+			padding-left: 0;
 		}
 	}
 	// .benefits__item

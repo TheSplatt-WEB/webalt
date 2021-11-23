@@ -137,6 +137,19 @@
 					&__btn {
 						@include adaptive(font-size, 36, 20, 1);
 
+						@media (any-hover: hover) {
+							&:hover {
+								color: var(--black);
+								--icon-fill: var(--black);
+
+								.link__text {
+									&::before {
+										background-color: var(--black);
+									}
+								}
+							}
+						}
+
 						@media (max-width: $md3 + px) {
 							color: var(--white);
 						--icon-fill: var(--white);

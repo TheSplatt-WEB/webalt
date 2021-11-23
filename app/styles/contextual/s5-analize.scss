@@ -24,6 +24,7 @@
 		@include adaptive(font-size, 48, 24, 1);
 		max-width: 840px;
 		margin-bottom: 47px;
+		text-align: center;
 
 		@media (max-width: $md1 + px) {
 			margin-bottom: 185px;

@@ -5,12 +5,18 @@
 	padding-top: 30px;
 	@include adaptive(padding-bottom, 101, 25, 1);
 
-	@media (max-width: $md2 + px) {
-		background-size: 60%;
+	@media (max-width: 1600px){
+		background-position: right -300px top;
 	}
 
-	@media (max-width: $md3 + px) {
+	@media (max-width: $md1 + px) {
+		background-position: right -500px top;
+	}
+
+	@media (max-width: $md2 + px) {
+		background-position: right top;
 		background-image: url("../images/context-descr-bg-mobile.png");
+		background-size: 60%;
 	}
 
 	@media (max-width: $md4 + px) {
@@ -25,8 +31,8 @@
 			margin-bottom: 240px;
 		}
 
-		@media (max-width: $md3 + px) {
-			@include adaptive(margin-bottom, 800, 100, 1);
+		@media (max-width: $md2 + px) {
+			@include adaptive(margin-bottom, 900, 100, 1);
 		}
 
 		@media (max-width: $md4 + px) {

@@ -110,6 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			reviewsSwiper.update();
 		}
 
+		//Клик по кнопке остальное для показа всего текста и скрытия самой кнопки в секции work-context
+		if (targetElement.classList.contains('work-context__btn-rest') && !targetElement.classList.contains('hide')) {
+			targetElement.closest('.work-context__item').querySelector('.work-context__descr').classList.add('active');
+			targetElement.classList.add('hide');
+			contextContentSwiper.update();
+		}
+
 		//Клик по кнопки фильтрации контента в секции progress-work
 		if (targetElement.classList.contains('progress-work__btn')) {
 			if (!targetElement.classList.contains('active')) {
@@ -172,6 +179,23 @@ document.addEventListener('DOMContentLoaded', () => {
 				progressWork.classList.remove('visible');
 				development.classList.remove('hidden');
 			}
+		}
+
+		//Клик по кнопке в секции work-context
+		if (targetElement.classList.contains('work-context__btn')) {
+			const workBtn = document.querySelectorAll('.work-context__btn');
+			for (let i = 0; i < workBtn.length; i++) {
+				const workBtnItem = workBtn[i];
+
+				if (workBtnItem.classList.contains('active')) {
+					workBtnItem.classList.remove('active');
+					targetElement.classList.add('active');
+				}
+			}
+
+			const btnDataFilter = targetElement.dataset.filter;
+
+			contextContentSwiper.slideTo(btnDataFilter, 300)
 		}
 	}
 
@@ -527,57 +551,68 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //Подключение слайдера в секции work-context
-const contextButtonsSwiper = new Swiper('.work-context__slider-btn', {
-	watchOverflow: true,
-	slidesPerView: 5,
-	slideToClickedSlide: true,
-
-	// navigation: {
-	// 	nextEl: '.reviews__next',
-	// 	prevEl: '.reviews__prev',
-	// },
-
-	// pagination: {
-	// 	el: '.reviews__pagination',
-	// 	type: 'bullets',
-	// },
-
-	// breakpoints: {
-	// 	'991.98': {
-	// 		pagination: {
-	// 			autoHeight: false,
-	// 			el: '.reviews__pagination',
-	// 			type: 'fraction',
-	// 		},
-	// 	},
-	// }
-});
 const contextContentSwiper = new Swiper('.work-context__slider', {
 	watchOverflow: true,
 	slidesPerView: 1,
 	grabCursor: true,
 	autoHeight: true,
 
-	// navigation: {
-	// 	nextEl: '.reviews__next',
-	// 	prevEl: '.reviews__prev',
-	// },
-
-	// pagination: {
-	// 	el: '.reviews__pagination',
-	// 	type: 'bullets',
-	// },
-
-	// breakpoints: {
-	// 	'991.98': {
-	// 		pagination: {
-	// 			autoHeight: false,
-	// 			el: '.reviews__pagination',
-	// 			type: 'fraction',
-	// 		},
-	// 	},
-	// }
+	pagination: {
+		el: '.work-context__pagination',
+		type: 'bullets',
+	},
 });
 
-contextButtonsSwiper.controller.control = contextContentSwiper;
-contextContentSwiper.controller.control = contextButtonsSwiper;
+//Добавляем зависимость активной кнопки от активного слайда
+contextContentSwiper.on('slideChange', function () {
+	let slideIndex = this.realIndex;
+
+	const btnCurrent = document.querySelectorAll('.work-context__btn');
+	for (let i = 0; i < btnCurrent.length; i++) {
+		const btnCurrentItem = btnCurrent[i];
+
+		btnCurrentItem.classList.remove('active');
+
+		if (btnCurrentItem.dataset.filter == slideIndex) {
+			btnCurrentItem.classList.add('active');
+
+			const hghjgj = btnCurrentItem.getBoundingClientRect().left;
+
+			let scroll = document.querySelector('.work-context__wrapper');
+
+			let speed = 1; // Скорость скролла.
+
+			scroll.scrollBy({
+				left: hghjgj - 50,
+				behavior: "smooth",
+			})
+
+		}
+
+	}
+});
+
+//Скролл кнопок в секции work-context
+(function () {
+	let speed = 1; // Скорость скролла.
+
+	let scroll = document.querySelector('.work-context__wrapper');
+
+	let left = 0; // отпустили мышку - сохраняем положение скролла
+	let drag = false;
+	let coorX = 0; // нажали мышку - сохраняем координаты.
+
+	scroll.addEventListener('mousedown', function (e) {
+		drag = true;
+		coorX = e.pageX - this.offsetLeft;
+	});
+	document.addEventListener('mouseup', function () {
+		drag = false;
+		left = scroll.scrollLeft;
+	});
+	scroll.addEventListener('mousemove', function (e) {
+		if (drag) {
+			this.scrollLeft = left - (e.pageX - this.offsetLeft - coorX) * speed;
+		}
+	});
+})();

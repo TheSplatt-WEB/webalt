@@ -129,7 +129,7 @@ function scriptsLibs() {
 function images() {
 	return src(['app/images/**/*.{jpg,png,svg,gif,ico,webp}', '!app/images/icons/**/*.svg'])
 		.pipe(webp({
-			quality: 70
+			quality: 100
 		}))
 		.pipe(dest('dist/images/'))
 		.pipe(src(['app/images/**/*.{jpg,png,svg,gif,ico,webp}', '!app/images/icons/**/*.svg']))
@@ -138,7 +138,7 @@ function images() {
 				progressive: true,
 				svgoPlugins: [{ removeViewBox: false }],
 				interlaced: true,
-				optimizationLevel: 3 // 0 to 7
+				optimizationLevel: 7 // 0 to 7
 			})
 		)
 		.pipe(dest('dist/images/'))

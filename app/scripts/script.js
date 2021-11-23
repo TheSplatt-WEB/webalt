@@ -580,8 +580,6 @@ contextContentSwiper.on('slideChange', function () {
 
 			let scroll = document.querySelector('.work-context__wrapper');
 
-			let speed = 1; // Скорость скролла.
-
 			scroll.scrollBy({
 				left: coordBtn - 50,
 				behavior: "smooth",

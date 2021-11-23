@@ -591,12 +591,10 @@ contextContentSwiper.on('slideChange', function () {
 
     if (btnCurrentItem.dataset.filter == slideIndex) {
       btnCurrentItem.classList.add('active');
-      var hghjgj = btnCurrentItem.getBoundingClientRect().left;
+      var coordBtn = btnCurrentItem.getBoundingClientRect().left;
       var scroll = document.querySelector('.work-context__wrapper');
-      var speed = 1; // Скорость скролла.
-
       scroll.scrollBy({
-        left: hghjgj - 50,
+        left: coordBtn - 50,
         behavior: "smooth"
       });
     }

@@ -576,14 +576,14 @@ contextContentSwiper.on('slideChange', function () {
 		if (btnCurrentItem.dataset.filter == slideIndex) {
 			btnCurrentItem.classList.add('active');
 
-			const hghjgj = btnCurrentItem.getBoundingClientRect().left;
+			const coordBtn = btnCurrentItem.getBoundingClientRect().left;
 
 			let scroll = document.querySelector('.work-context__wrapper');
 
 			let speed = 1; // Скорость скролла.
 
 			scroll.scrollBy({
-				left: hghjgj - 50,
+				left: coordBtn - 50,
 				behavior: "smooth",
 			})
 

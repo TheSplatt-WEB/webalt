@@ -351,6 +351,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var inputPrices = document.querySelector('#pricesPhone');
   var inputDeveloped = document.querySelector('#developedPhone');
   var inputWhyContext = document.querySelector('#whyContextPhone');
+  var inputSmmPhone = document.querySelector('#smmPhone');
 
   if (inputApplicants) {
     var maskOptions = {
@@ -378,6 +379,13 @@ document.addEventListener('DOMContentLoaded', function () {
       mask: '+{7}(000) 000 00 00'
     };
     IMask(inputWhyContext, _maskOptions3);
+  }
+
+  if (inputSmmPhone) {
+    var _maskOptions4 = {
+      mask: '+{7}(000) 000 00 00'
+    };
+    IMask(inputSmmPhone, _maskOptions4);
   } //Функция добавляющая класс всем инпутам в которые что то вписали для стилизации валидации
 
 
@@ -519,6 +527,39 @@ document.addEventListener('DOMContentLoaded', function () {
         minLength: '*заполните телефон в формате +7(xxx) xxx xx xx'
       }
     });
+  } //Функция валидации формы секции composition smm
+
+
+  var smmForm = document.querySelector('.form-box__form');
+
+  if (smmForm) {
+    var _validateDevelopedForms2 = function _validateDevelopedForms2(selector, rules, messages) {
+      new JustValidate('.form-box__form', {
+        rules: rules,
+        messages: messages,
+        submitHundler: function submitHundler(form) {}
+      });
+    };
+
+    _validateDevelopedForms2('.form-box__form', {
+      smmName: {
+        required: true,
+        minLength: 3
+      },
+      smmPhone: {
+        required: true,
+        minLength: 17
+      }
+    }, {
+      smmName: {
+        required: '*это поле необходимо заполнить',
+        minLength: 'Минимум 3 символа'
+      },
+      smmPhone: {
+        required: '*это поле необходимо заполнить',
+        minLength: '*заполните телефон в формате +7(xxx) xxx xx xx'
+      }
+    });
   } //Подключение слайдера в секции reviews
 
 
@@ -601,26 +642,46 @@ contextContentSwiper.on('slideChange', function () {
   }
 }); //Скролл кнопок в секции work-context
 
-(function () {
-  var speed = 1; // Скорость скролла.
+var workContextWrapper = document.querySelector('.work-context__wrapper');
 
-  var scroll = document.querySelector('.work-context__wrapper');
-  var left = 0; // отпустили мышку - сохраняем положение скролла
+if (workContextWrapper) {
+  (function () {
+    var speed = 1; // Скорость скролла.
 
-  var drag = false;
-  var coorX = 0; // нажали мышку - сохраняем координаты.
+    var scroll = document.querySelector('.work-context__wrapper');
+    var left = 0; // отпустили мышку - сохраняем положение скролла
 
-  scroll.addEventListener('mousedown', function (e) {
-    drag = true;
-    coorX = e.pageX - this.offsetLeft;
-  });
-  document.addEventListener('mouseup', function () {
-    drag = false;
-    left = scroll.scrollLeft;
-  });
-  scroll.addEventListener('mousemove', function (e) {
-    if (drag) {
-      this.scrollLeft = left - (e.pageX - this.offsetLeft - coorX) * speed;
-    }
-  });
-})();
+    var drag = false;
+    var coorX = 0; // нажали мышку - сохраняем координаты.
+
+    scroll.addEventListener('mousedown', function (e) {
+      drag = true;
+      coorX = e.pageX - this.offsetLeft;
+    });
+    document.addEventListener('mouseup', function () {
+      drag = false;
+      left = scroll.scrollLeft;
+    });
+    scroll.addEventListener('mousemove', function (e) {
+      if (drag) {
+        this.scrollLeft = left - (e.pageX - this.offsetLeft - coorX) * speed;
+      }
+    });
+  })();
+} //Подключение слайдера в секции composition
+
+
+var compositionSwiper = new Swiper('.composition__image.swiper', {
+  watchOverflow: true,
+  slidesPerView: 1,
+  grabCursor: true,
+  autoHeight: true,
+  navigation: {
+    nextEl: '.composition__btn--next',
+    prevEl: '.composition__btn--prev'
+  },
+  pagination: {
+    el: '.composition__pagination',
+    type: 'fraction'
+  }
+});

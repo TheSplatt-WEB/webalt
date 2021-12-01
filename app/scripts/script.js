@@ -1,3 +1,5 @@
+"use strict";
+
 function testWebP(callback) {
 
 	var webP = new Image();
@@ -328,6 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const inputPrices = document.querySelector('#pricesPhone');
 	const inputDeveloped = document.querySelector('#developedPhone');
 	const inputWhyContext = document.querySelector('#whyContextPhone');
+	const inputSmmPhone = document.querySelector('#smmPhone');
 	if (inputApplicants) {
 		const maskOptions = {
 			mask: '+{7}(000) 000 00 00'
@@ -351,6 +354,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			mask: '+{7}(000) 000 00 00'
 		}
 		IMask(inputWhyContext, maskOptions);
+	}
+	if (inputSmmPhone) {
+		const maskOptions = {
+			mask: '+{7}(000) 000 00 00'
+		}
+		IMask(inputSmmPhone, maskOptions);
 	}
 
 	//Функция добавляющая класс всем инпутам в которые что то вписали для стилизации валидации
@@ -498,6 +507,40 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	}
 
+	//Функция валидации формы секции composition smm
+	const smmForm = document.querySelector('.form-box__form');
+
+	if (smmForm) {
+		const validateDevelopedForms = function (selector, rules, messages) {
+			new JustValidate('.form-box__form', {
+				rules: rules,
+				messages: messages,
+				submitHundler: function (form) {
+
+				}
+			})
+		}
+		validateDevelopedForms('.form-box__form', {
+			smmName: {
+				required: true,
+				minLength: 3
+			},
+			smmPhone: {
+				required: true,
+				minLength: 17
+			}
+		}, {
+			smmName: {
+				required: '*это поле необходимо заполнить',
+				minLength: 'Минимум 3 символа'
+			},
+			smmPhone: {
+				required: '*это поле необходимо заполнить',
+				minLength: '*заполните телефон в формате +7(xxx) xxx xx xx'
+			}
+		})
+	}
+
 	//Подключение слайдера в секции reviews
 	const reviewsSwiper = new Swiper('.reviews__body', {
 		watchOverflow: true,
@@ -591,26 +634,48 @@ contextContentSwiper.on('slideChange', function () {
 });
 
 //Скролл кнопок в секции work-context
-(function () {
-	let speed = 1; // Скорость скролла.
+const workContextWrapper = document.querySelector('.work-context__wrapper');
 
-	let scroll = document.querySelector('.work-context__wrapper');
+if (workContextWrapper) {
+	(function () {
+		let speed = 1; // Скорость скролла.
 
-	let left = 0; // отпустили мышку - сохраняем положение скролла
-	let drag = false;
-	let coorX = 0; // нажали мышку - сохраняем координаты.
+		let scroll = document.querySelector('.work-context__wrapper');
 
-	scroll.addEventListener('mousedown', function (e) {
-		drag = true;
-		coorX = e.pageX - this.offsetLeft;
-	});
-	document.addEventListener('mouseup', function () {
-		drag = false;
-		left = scroll.scrollLeft;
-	});
-	scroll.addEventListener('mousemove', function (e) {
-		if (drag) {
-			this.scrollLeft = left - (e.pageX - this.offsetLeft - coorX) * speed;
-		}
-	});
-})();
+		let left = 0; // отпустили мышку - сохраняем положение скролла
+		let drag = false;
+		let coorX = 0; // нажали мышку - сохраняем координаты.
+
+		scroll.addEventListener('mousedown', function (e) {
+			drag = true;
+			coorX = e.pageX - this.offsetLeft;
+		});
+		document.addEventListener('mouseup', function () {
+			drag = false;
+			left = scroll.scrollLeft;
+		});
+		scroll.addEventListener('mousemove', function (e) {
+			if (drag) {
+				this.scrollLeft = left - (e.pageX - this.offsetLeft - coorX) * speed;
+			}
+		});
+	})();
+}
+
+//Подключение слайдера в секции composition
+const compositionSwiper = new Swiper('.composition__image.swiper', {
+	watchOverflow: true,
+	slidesPerView: 1,
+	grabCursor: true,
+	autoHeight: true,
+
+	navigation: {
+		nextEl: '.composition__btn--next',
+		prevEl: '.composition__btn--prev',
+	},
+
+	pagination: {
+		el: '.composition__pagination',
+		type: 'fraction',
+	},
+});

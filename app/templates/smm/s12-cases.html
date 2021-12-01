@@ -1,0 +1,61 @@
+<section class="cases">
+	<div class="cases__container container">
+		<h2 class="sr-only">Наши кейсы</h2>
+		<svg class="cases__title-img title-img">
+			<use xlink:href="images/sprite.svg#title-cases"></use>
+		</svg>
+
+		<ul class="cases__content">
+			<li class="cases__item">
+				@include('../common/components/case.html',{
+				"alt": "Изображение ключей",
+				"big": "0",
+				"img": "tops",
+				"title": "Вершины",
+				"category": "Строительство",
+				"hashCase": "tops",
+				"descr": "<span>>140</span> ОБРАЩЕНИЙ В DIRECT",
+				"contentCase": "",
+				"link": "https://web-alt.ru/works/versiny",
+				})
+			</li>
+
+			<li class="cases__item">
+				@include('../common/components/case.html',{
+				"alt": "Изображение авокадо",
+				"big": "0",
+				"img": "fruits",
+				"title": "fruits life",
+				"category": "Продукты",
+				"hashCase": "fruits",
+				"descr": "INSTAGRAM С <span>НУЛЯ</span>",
+				"contentCase": "",
+				"link": "https://web-alt.ru/works/fruits-life",
+				})
+			</li>
+
+			<li class="cases__item">
+				@include('../common/components/case.html',{
+				"alt": "Изображение статуи женщины",
+				"big": "0",
+				"img": "woomen",
+				"title": "Paulain",
+				"category": "торговля",
+				"hashCase": "paulain",
+				"descr": "<span>83</span> ЗАЯВКИ ИЗ АМЕРИКИ",
+				"contentCase": "",
+				"link": "https://web-alt.ru/works/paulain",
+				})
+			</li>
+		</ul>
+
+		<a class="cases__add link link--uppercase link--underline link--bold link--orange" href="https://web-alt.ru/works" target="_blank">
+			<span class="link__text">показать еще</span>
+			<span class="link__icon">
+				<svg>
+					<use xlink:href="images/sprite.svg#arrow-symbol"></use>
+				</svg>
+			</span>
+		</a>
+	</div>
+</section>

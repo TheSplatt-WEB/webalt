@@ -1,0 +1,19 @@
+//Подключаем миксины//
+// @import 'common/base/mixins.scss';
+
+//Общие стили//
+@import './common/core.scss';
+@import "common/sections/s1-prices-im.scss";
+
+//Компоненты
+@import './common/components/prices-box.scss';
+@import './common/components/form-box.scss';
+
+//Индивидуальные секции//
+@import './smm/s1-smm-suits.scss';
+@import './contextual/s3-benefits.scss';
+@import './smm/s3-smm-social.scss';
+@import "./common/components/analize-card.scss";
+@import './smm/s4-composition.scss';
+@import './smm/s6-scheme-work.scss';
+@import './smm/s7-services.scss';

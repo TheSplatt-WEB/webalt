@@ -1,0 +1,64 @@
+.services {
+	@include adaptive(padding-top, 117, 31, 1);
+	@include adaptive(padding-bottom, 162, 85, 1);
+	background-image: url("../images/services-bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	// .services__container
+	&__container {
+		display: flex;
+		flex-direction: column;
+	}
+	// .services__title
+	&__title {
+		@include adaptive(margin-bottom, 137, 57, 1);
+
+		@media (max-width: $md3 + px) {
+			font-size: 52px;
+		}
+	}
+	// .services__list
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		max-width: 1440px;
+		width: 100%;
+		margin-left: -35px;
+		align-self: center;
+
+		@media (max-width: $md1 + px) {
+			flex-wrap: wrap;
+			align-items: stretch;
+		}
+
+		@media (max-width: $md2 + px) {
+			margin-left: 0;
+		}
+	}
+	// .services__card
+	&__card {
+		box-shadow: 1px 1px 0px 10px rgba(242, 242, 242, 0.5);
+		max-width: 415px;
+		width: 100%;
+		margin-left: 35px;
+
+		@media (max-width: $md1 + px) {
+			max-width: calc(50% - 35px);
+			margin-bottom: 35px;
+
+			&:last-child {
+				max-width: 100%;
+				margin-bottom: 0;
+			}
+		}
+
+		@media (max-width: $md2 + px) {
+			max-width: 100%;
+			margin-left: 0;
+			margin-bottom: 57px;
+			box-shadow: none;
+		}
+	}
+}

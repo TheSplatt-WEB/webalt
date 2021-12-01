@@ -203,6 +203,10 @@ main {
 	line-height: 1;
 	text-transform: uppercase;
 
+	&--white {
+		color: var(--white);
+	}
+
 	span {
 		color: var(--orange);
 	}
@@ -215,7 +219,7 @@ main {
 
 	&--desctop {
 		@media (max-width: $md4 + px) {
-			display: none;
+			display:  none;
 		}
 	}
 
@@ -240,7 +244,7 @@ main {
 
 	~ .form-application__label {
 		transform: translate(0, 0);
-		color: var(--black) !important;
+		color: var(--orange) !important;
 		&::before {
 			opacity: 1;
 			background-color: var(--darken) !important;

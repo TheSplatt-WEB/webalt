@@ -1,5 +1,13 @@
 .benefits {
 	@include adaptive(margin-bottom, 130, 78, 1);
+
+	&--cmm {
+		.benefits {
+			&__title {
+				max-width: 950px;
+			}
+		}
+	}
 	// .benefits__container
 	&__container {
 	}

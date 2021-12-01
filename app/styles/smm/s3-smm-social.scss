@@ -1,0 +1,115 @@
+.smm-social {
+	@include adaptive(padding-top, 40, 0, 1);
+	@include adaptive(padding-bottom, 130, 50, 1);
+	background-image: url("../images/smm-social/shout.png");
+	background-repeat: no-repeat;
+	background-position: right bottom;
+
+	@media (max-width: 1600px){
+		background-size: 20%;
+	}
+
+	@media (max-width: $md4 + px) {
+		background-image: url("../images/smm-social/shout-mobile.png");
+		background-position: right top 250px;
+		
+	}
+	// .smm-social__inner
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-left: 113px;
+		position: relative;
+
+		@media (max-width: $md2 + px) {
+			padding-left: 0;
+		}
+
+		@media (max-width: $md4 + px) {
+			flex-direction: column-reverse;
+		}
+
+		&::before {
+			content:'';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 415px;
+			width: 90px;
+			mask: url("../images/sprite.svg#arrow-symbol") top / 155% repeat;
+			background-color: var(--lighting);
+
+			@media (max-width: $md2 + px) {
+				display: none;
+			}
+		}
+	}
+	// .smm-social__img-desctop
+	&__img-desctop {
+		max-width: 558px;
+		width: 100%;
+
+		@media (max-width: $md3 + px) {
+			display: none;
+		}
+	}
+	// .smm-social__img-mobile
+	&__img-mobile {
+		@media (min-width: $md3 + px) {
+			display: none;
+		}
+	}
+	// .smm-social__info
+	&__info {
+		max-width: 910px;
+		width: 100%;
+		margin-left: 15px;
+
+		@media (max-width: $md4 + px) {
+			margin-bottom: 60px;
+		}
+	}
+	// .smm-social__descr
+	&__descr {
+		@include adaptive(margin-bottom, 45, 16, 1);
+		@include adaptive(font-size, 22, 18, 1);
+		max-width: 450px;
+	}
+	// .smm-social__list
+	&__list {
+		@include adaptive(font-size, 22, 16, 1);
+		padding-left: 30px;
+		@include adaptive(margin-bottom, 59, 36, 1);
+		max-width: 450px;
+
+		@media (max-width: $md4 + px) {
+			padding-left: 20px;
+		}
+	}
+	// .smm-social__item
+	&__item {
+		list-style: outside;
+		color: var(--orange);
+
+		&:not(:last-child) {
+			margin-bottom: 11px;
+		}
+	}
+	// .smm-social__link
+	&__link {
+		font-size: 24px;
+		line-height: 1;
+		font-weight: 400;
+		align-items: center;
+
+		&::before {
+			content:'';
+			min-width: 40px;
+			height: 40px;
+			mask: url("../images/sprite.svg#instagram") center / cover no-repeat;
+			background-color: var(--orange);
+			margin-right: 11px;
+		}
+	}
+}

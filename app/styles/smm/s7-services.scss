@@ -36,6 +36,46 @@
 		@media (max-width: $md2 + px) {
 			margin-left: 0;
 		}
+
+		&--style {
+			justify-content: space-around;
+
+			.services {
+				&__card {
+					@media (max-width: $md1 + px) {
+						&:last-child {
+							max-width: calc(50% - 35px);
+							margin-bottom: 35px;
+						}
+					}
+
+					@media (max-width: $md2 + px) {
+						max-width: calc(50% - 35px);
+						margin-bottom: 35px;
+					}
+
+					@media (max-width: $md3 + px) {
+						max-width: 100%;
+
+						&:last-child {
+							max-width: 100%;
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
+
+			.analize-card__sum {
+				font-size: 48px;
+				align-items: flex-end;
+				line-height: 0.6;
+
+				span {
+					font-size: 24px;
+					@include adaptive(margin-right, 20, 14, 1);
+				}
+			}
+		}
 	}
 	// .services__card
 	&__card {

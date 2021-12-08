@@ -271,6 +271,144 @@
 			}
 		}
 	}
+
+	&--style {
+		@include adaptive(margin-bottom, 90, 40, 1);
+
+		@media (max-width: $md2 + px) {
+			background-image: url("../images/herro-bg-style-mobile.png");
+			background-repeat: no-repeat;
+			background-position: top 270px center;
+		}
+
+		@media (max-width: $md3 + px) {
+			background-position: top 225px center;
+		}
+
+		@media (max-width: $md4 + px) {
+			background-position: top 200px center;
+		}
+
+		.top {
+			&__body {
+				align-items: center;
+			}
+
+			&__title {
+				margin-bottom: 61px;
+
+				@media (max-width: $md2 + px) {
+					margin-bottom: 200px;
+				}
+
+				.title {
+					@media (max-width: $md2 + px) {
+						font-size: 72px;
+						display: block;
+					}
+
+					@media (max-width: $md3 + px) {
+						font-size: 65px;
+					}
+
+					@media (max-width: $md4 + px) {
+						font-size: 40px;
+					}
+				}
+
+				.title-mini {
+					margin-left: 0;
+					@include adaptive(font-size, 72, 30, 1);
+
+					@media (max-width: $md2 + px) {
+						font-size: 50px;
+					}
+
+					@media (max-width: $md4 + px) {
+						font-size: 30px;
+						max-width: 320px;
+						white-space: normal;
+						display: block;
+					}
+				}
+			}
+
+			&__descr {
+				max-width: 480px;
+				position: relative;
+				@include adaptive(font-size, 24, 22, 1);
+
+				p {
+					@include adaptive(margin-bottom, 50, 5, 1);
+				}
+
+				&:not(:last-child) {
+					@include adaptive(margin-bottom, 200, 150, 1);
+				}
+
+				&::before {
+					content:'';
+					background-image: url("../images/herro-badge.svg");
+					background-repeat: no-repeat;
+					background-size: contain;
+					position: absolute;
+					right: 0;
+					top: 0;
+					width: 270px;
+					height: 190px;
+					transform: translate(100%, 0);
+					z-index: -1;
+
+					@media (max-width: $md1 + px) {
+						top: auto;
+						bottom: -100px;
+						right: -80px;
+						transform: translate(0, 0);
+					}
+	
+					@media (max-width: $md2 + px) {
+						right: -220px;
+					}
+
+					@media (max-width: $md3 + px) {
+						right: -50px;
+						left: auto;
+						bottom: -180px;
+						z-index: 1;
+					}
+				}
+			}
+
+			&__image {
+				justify-content: flex-end;
+				margin-top: 60px;
+
+				@media (max-width: $md2 + px) {
+					display: none;
+				}
+			}
+
+			&__list {
+				@media (max-width: $md4 + px) {
+					position: relative;
+
+					&::before {
+					content:'';
+					position: absolute;
+					top: -40px;
+					left: -15px;
+					z-index: -1;
+					width: 100vw;
+					height: 350px;
+					background-image: url("../images/top-list-bg.svg");
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-position: left top;
+					}
+				}
+			}
+		}
+	}
 	// .top__body
 	&__body {
 		display: flex;

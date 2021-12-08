@@ -75,8 +75,8 @@ main {
 	max-width: $maxWidthContainer + px;
 	width: 100%;
 	margin: 0 auto;
-	@include adaptive(padding-right, 100, 15, 1);
-	@include adaptive(padding-left, 100, 15, 1);
+	@include adaptive(padding-right, 100, 20, 1);
+	@include adaptive(padding-left, 100, 20, 1);
 
 	@media (max-width: $md3 + px) {
 		padding: 0 20px;

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+@include('./templates/common/head.html',{
+"title":"Фирменный стиль | WEB-Alternative",
+"keywords":"Интернет магазин на заказ, веб-студия, сайты на заказ",
+"Description":"Комплексное ведение социальных сетей: Упаковка профиля, Посты и сторис, Таргетированная реклама",
+"urlSite":"https://web-alt.ru/",
+"imagePreload":"images/logo-big.svg",
+"css":"style"
+})
+
+<body>
+	<div class="wrapper">
+		<div class="content">
+			@include('./templates/common/header.html',{})
+			@include('./templates/style/index.html',{})
+		</div>
+		@include('./templates/common/footer.html',{})
+	</div>
+	@include('./templates/common/components/menu.html',{})
+
+	<div class="progress-scroll-bar">
+		<span></span>
+	</div>
+
+	<!-- @include('_popup.html',{}) -->
+	@include('./templates/common/js.html',{})
+</body>
+
+</html>

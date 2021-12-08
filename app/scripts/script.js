@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		}
 
-		//Клик для вызова лайтбоксов в секции Примеры работ
+		//Клик для вызова лайтбоксов в секции examples
 		if (targetElement.classList.contains('examples__link')) {
 			body.classList.add('lock');
 			targetElement.closest('.examples__item').querySelector('.examples__lightbox').classList.add('open');
@@ -158,6 +158,24 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (targetElement.classList.contains('examples__image')) {
 			body.classList.remove('lock');
 			targetElement.closest('.examples__lightbox').classList.remove('open');
+		}
+
+		//Клик для вызова лайтбоксов в секции examples-style
+		if (targetElement.classList.contains('examples-style__btn')) {
+			body.classList.add('lock');
+			targetElement.closest('.examples-style__item').querySelector('.examples-style__lightbox').classList.add('open');
+		}
+		if (targetElement.classList.contains('examples__badge')) {
+			body.classList.add('lock');
+			targetElement.closest('.examples-style__item').querySelector('.examples-style__lightbox').classList.add('open');
+		}
+		if (targetElement.classList.contains('examples-style__lightbox')) {
+			body.classList.remove('lock');
+			targetElement.classList.remove('open');
+		}
+		if (targetElement.classList.contains('examples-style__lightbox-img')) {
+			body.classList.remove('lock');
+			targetElement.closest('.examples-style__lightbox').classList.remove('open');
 		}
 
 		//Клик по кнопке показать еще в секции development

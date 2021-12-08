@@ -1,0 +1,111 @@
+ .raiting-style {
+	 margin-bottom: 5px;
+	 @include adaptive(padding-bottom, 0, 0, 1);
+	 @include adaptive(padding-top, 0, 0, 1);
+	// .raiting-style__title-box
+	&__title-box {
+		background-image: url("../images/raiting-style-bg.png");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: right center;
+		@include adaptive(padding-top, 300, 180, 1);
+		@include adaptive(padding-bottom, 280, 84, 1);
+
+		@media (max-width: $md3 + px) {
+			background-image: url("../images/raiting-style-bg-mobile.png");
+			background-position: left center;
+			@include adaptive(padding-top, 600, 200, 1);
+			@include adaptive(padding-bottom, 380, 100, 1);
+		}
+	}
+	// .raiting-style__title
+	&__title {
+		@include adaptive(font-size, 96, 44, 1);
+		text-transform: uppercase;
+		font-weight: 700;
+		line-height: 0.76;
+		color: var(--black);
+		letter-spacing: 0.015em;
+		max-width: 47%;
+		margin-left: auto;
+
+		@media (max-width: $md2 + px) {
+			max-width: 420px;
+		}
+
+		@media (max-width: $md3 + px) {
+			line-height: 0.81;
+			margin-left: 0;
+			max-width: 300px;
+		}
+
+		span {
+			color: var(--white);
+		}
+	}
+	// .raiting-style__body
+	&__body {
+		display: flex;
+		justify-content: space-between;
+
+		@media (max-width: $md3 + px) {
+			flex-direction: column;
+		}
+	}
+	// .raiting-style__info
+	&__info {
+		@include adaptive(font-size, 24, 16, 1);
+		line-height: 1.7;
+		max-width: 705px;
+		margin-right: 15px;
+
+		@media (max-width: $md3 + px) {
+			line-height: 1.4;
+			margin-right: 0;
+			margin-bottom: 33px;
+		}
+	}
+	// .raiting-style__text
+	&__text {
+		margin-bottom: 37px;
+
+		@media (max-width: $md3 + px) {
+			margin-bottom: 33px;
+		}
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: 37px;
+
+				@media (max-width: $md3 + px) {
+					margin-bottom: 33px;
+				}
+			}
+		}
+
+		span {
+			color: var(--orange);
+		}
+	}
+	// .raiting-style__descr
+	&__descr {
+		@include adaptive(font-size, 16, 14, 1);
+		text-transform: uppercase;
+		font-weight: 700;
+
+		span {
+			color: var(--orange);
+		}
+	}
+
+	.raiting {
+		&__list {
+			margin-bottom: 0;
+
+			@media (max-width: $md4 + px) {
+				margin-left: -20px;
+				width: calc(100% + 40px);
+			}
+		}
+	}
+}

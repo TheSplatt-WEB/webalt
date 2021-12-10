@@ -161,11 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		//Клик для вызова лайтбоксов в секции examples-style
-		if (targetElement.classList.contains('examples-style__btn')) {
-			body.classList.add('lock');
-			targetElement.closest('.examples-style__item').querySelector('.examples-style__lightbox').classList.add('open');
-		}
-		if (targetElement.classList.contains('examples__badge')) {
+		if (targetElement.classList.contains('examples-style__image')) {
 			body.classList.add('lock');
 			targetElement.closest('.examples-style__item').querySelector('.examples-style__lightbox').classList.add('open');
 		}

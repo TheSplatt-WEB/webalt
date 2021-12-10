@@ -2,6 +2,20 @@
 	background-color: var(--lighting);
 	display: flex;
 	flex-direction: column;
+
+	@media (any-hover: hover) {
+		&:hover {
+			.analize-btn {
+				--color-text: var(--black);
+				--icon-fill: var(--black);
+				background-color: var(--orange);
+
+				&__inner {
+					transform: translate(0, 0);
+				}
+			}
+		}
+	}
 	// .analize-card__inner
 	&__inner {
 		padding: 30px 30px 60px;
@@ -25,10 +39,6 @@
 		&--mini-24 {
 			@include adaptive(font-size, 24, 24, 1);
 		}
-	}
-	// .analize-card__list
-	&__list {
-
 	}
 	// .analize-card__row
 	&__row {
@@ -150,25 +160,14 @@
 	overflow: hidden;
 	transition: background-color 0.3s;
 
+	&:active {
+		transform: translate(1px, 1px);
+	}
+
 	@media (any-hover: none) {
 		background-color: var(--orange);
 		--color-text: var(--white);
 		--icon-fill: var(--white);
-	}
-
-	@media (any-hover: hover) {
-		--color-text: var(--dark);
-		--icon-fill: var(--dark);
-
-		&:hover {
-			--color-text: var(--black);
-			--icon-fill: var(--black);
-			background-color: var(--orange);
-
-			.analize-btn__inner {
-				transform: translate(0, 0);
-			}
-		}
 	}
 	// .analize-btn__inner
 	&__inner {

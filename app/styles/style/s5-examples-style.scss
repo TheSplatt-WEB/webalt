@@ -4,9 +4,6 @@
 	@media (max-width: $md3 + px) {
 		margin-bottom: 60px;
 	}
-	// .examples-style__container
-	&__container {
-	}
 	// .examples-style__title
 	&__title {
 		max-width: 1140px;
@@ -37,18 +34,6 @@
 
 		@media (max-width: $md4 + px) {
 			grid-column: span 100 !important;
-		}
-
-		@media (any-hover: hover) {
-			&:hover {
-				.examples-style {
-					&__image {
-						&::before {
-							opacity: 1;
-						}
-					}
-				}
-			}
 		}
 
 		&:nth-child(1) {
@@ -152,6 +137,56 @@
 		position: relative;
 		width: 100%;
 
+		@media (any-hover: hover) {
+			&:focus-visible {
+				&::before {
+					opacity: 1;
+				}
+
+				.link {
+					--icon-fill: var(--orange);
+					color: var(--orange);
+
+					&__text {
+						&::before {
+							width: 100%;
+							background-color: var(--orange);
+						}
+					}
+
+					svg {
+						animation: arrowSymbol 2s 0.5s infinite;
+					}
+				}
+			}
+
+			&:active {
+				transform: translate(1px, 1px);
+			}
+
+			&:hover {
+				&::before {
+					opacity: 1;
+				}
+
+				.link {
+					--icon-fill: var(--orange);
+					color: var(--orange);
+
+					&__text {
+						&::before {
+							width: 100%;
+							background-color: var(--orange);
+						}
+					}
+
+					svg {
+						animation: arrowSymbol 2s 0.5s infinite;
+					}
+				}
+			}
+		}
+
 		&::before {
 			content:'';
 			position: absolute;
@@ -190,6 +225,7 @@
 		@include adaptive(left, 44, 20, 1);
 		@include adaptive(bottom, 77, 44, 1);
 		@include adaptive(padding-right, 44, 20, 1);
+		pointer-events: none;
 
 		@media (max-width: $md3 + px) {
 			font-size: 0;
@@ -204,27 +240,13 @@
 		position: absolute;
 		@include adaptive(left, 44, 20, 1);
 		@include adaptive(bottom, 50, 17, 1);
+		pointer-events: none;
 
 		@media (max-width: $md3 + px) {
 			font-weight: 400;
 			color: var(--orange);
 			--underline-color: var(--orange);
 			--icon-fill: var(--orange);
-		}
-
-		@media (any-hover: hover) {
-			&:hover {
-				color: var(--orange);
-				--icon-fill: var(--orange);
-
-				.link {
-					&__text {
-						&::before {
-							background-color: var(--orange);
-						}
-					}
-				}
-			}
 		}
 	}
 	// .examples-style__lightbox
@@ -241,13 +263,15 @@
 		background-color: rgba(#000, 0.7);
 		@include adaptive(padding, 100, 15, 1);
 		display: none;
+		justify-content: center;
 
 		&.open {
-			display: block;
+			display: flex;
 		}
 	}
 	// .examples-style__lightbox-img
 	&__lightbox-img {
+		max-width: 1000px;
 		width: 100%;
 		height: auto;
 		position: relative;

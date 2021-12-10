@@ -12,6 +12,7 @@
 	--icon-fill: var(--white);
 	--underline-color: var(--black);
 	line-height: 1;
+	width: fit-content;
 
 	&:active {
 		transform: translate(1px, 1px);

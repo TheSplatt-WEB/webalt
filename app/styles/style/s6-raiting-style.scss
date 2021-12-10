@@ -47,6 +47,7 @@
 	&__body {
 		display: flex;
 		justify-content: space-between;
+		align-items: flex-start;
 
 		@media (max-width: $md3 + px) {
 			flex-direction: column;
@@ -56,22 +57,21 @@
 	&__info {
 		@include adaptive(font-size, 24, 16, 1);
 		line-height: 1.7;
-		max-width: 705px;
+		max-width: 845px;
+		width: 100%;
 		margin-right: 15px;
+		@include adaptive(padding-left, 140, 0, 1);
 
 		@media (max-width: $md3 + px) {
 			line-height: 1.4;
 			margin-right: 0;
 			margin-bottom: 33px;
+			padding-left: 0;
 		}
 	}
 	// .raiting-style__text
 	&__text {
 		margin-bottom: 37px;
-
-		@media (max-width: $md3 + px) {
-			margin-bottom: 33px;
-		}
 
 		p {
 			&:not(:last-child) {
@@ -101,6 +101,8 @@
 	.raiting {
 		&__list {
 			margin-bottom: 0;
+			max-width: 705px;
+			width: 100%;
 
 			@media (max-width: $md4 + px) {
 				margin-left: -20px;
